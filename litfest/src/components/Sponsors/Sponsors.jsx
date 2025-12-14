@@ -1,9 +1,11 @@
-import React from 'react';
-import './Sponsors.css';
+import React from "react";
+import "./Sponsors.css";
 
 const Sponsors = () => {
   return (
-    <section className="sponsors">
+    <section id="sponsors" className="sponsors">
+      <h2>Our Sponsors</h2>
+      <p>Coming Soon</p>
     </section>
   );
 };

@@ -1,2 +1,26 @@
 .about {
+  padding: 120px 60px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(10, 15, 13, 0.6) 0%, rgba(15, 30, 20, 0.8) 100%);
+  border-top: 1px solid rgba(127, 255, 161, 0.1);
+  border-bottom: 1px solid rgba(127, 255, 161, 0.1);
+}
+
+.about h2 {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  color: #7fffa1;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 30px rgba(127, 255, 161, 0.1);
+}
+
+.about p {
+  font-size: 1.2rem;
+  color: #bbb;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }

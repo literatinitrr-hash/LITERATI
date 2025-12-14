@@ -1,2 +1,91 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 48px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(10, 15, 13, 0.95) 0%, rgba(10, 15, 13, 0.8) 100%);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(127, 255, 161, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7fffa1 0%, #2ecc71 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav a {
+  margin-left: 18px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #7fffa1, #2ecc71);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: #7fffa1;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%) !important;
+  padding: 10px 22px;
+  border-radius: 28px;
+  color: #042014 !important;
+  margin-left: 22px;
+  font-weight: 700;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(46, 204, 113, 0.18);
+}
+
+.register-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 50px rgba(46, 204, 113, 0.28);
+}
+
+@media (max-width: 880px) {
+  .header { padding: 12px 20px; }
+  .nav a { display: none; }
+  .register-btn { margin-left: 8px; padding: 8px 14px; }
+  .logo { font-size: 1.6rem; }
 }

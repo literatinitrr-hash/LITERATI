@@ -1,16 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "@tailwindcss/postcss/utilities";
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
 
 :root {
+  --accent: #2ecc71;
+  --accent-2: #7fffa1;
+  --bg-dark: #07120f;
+  --panel: rgba(5,10,8,0.6);
+  --muted: #bfc9c1;
+  --glass: rgba(255,255,255,0.04);
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(255, 255, 255, 0.92);
+  background-color: var(--bg-dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -36,8 +49,8 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+  line-height: 1.05;
 }
 
 button {
@@ -47,7 +60,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(255,255,255,0.02);
   cursor: pointer;
   transition: border-color 0.25s;
 }

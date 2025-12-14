@@ -1,2 +1,26 @@
 .footer {
+  padding: 40px 60px;
+  text-align: center;
+  border-top: 2px solid rgba(127, 255, 161, 0.2);
+  background: linear-gradient(180deg, rgba(10, 15, 13, 0.9) 0%, rgba(5, 10, 8, 1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #7fffa1, transparent);
+}
+
+.footer p {
+  color: #777;
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  font-weight: 300;
 }
