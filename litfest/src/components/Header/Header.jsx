@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({onRegisterClick}) => {
   return (
     <header className="header">
       <div className="logo">LitFest 2026</div>
@@ -10,7 +10,7 @@ const Header = () => {
         <a href="#events">Events</a>
         <a href="#speakers">Speakers</a>
         <a href="#timeline">Timeline</a>
-        <a href="#register" className="register-btn">Register</a>
+        <a href="#register" className="register-btn" onClick={onRegisterClick}>Register</a>
       </nav>
     </header>
   );

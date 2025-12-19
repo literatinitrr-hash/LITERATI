@@ -1,0 +1,13 @@
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{
+font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}

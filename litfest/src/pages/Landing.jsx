@@ -11,10 +11,10 @@ import Stats from "../components/Stats/Stats";
 import FAQ from "../components/FAQ/FAQ";
 import Footer from "../components/Footer/Footer";
 
-const Landing = () => {
+const Landing = ({onRegisterClick}) => {
   return (
     <div className="landing-container">
-      <Header />
+      <Header onRegisterClick={onRegisterClick} />
       <Hero />
       <About />
       <Events />
