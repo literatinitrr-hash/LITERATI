@@ -3,11 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Book from "./components/Registration-Form/Book";
 import Landing from "./pages/Landing";
 import Register from "./pages/Register"
-import Register from "./pages/Register";
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Book from "./components/Registrarion-Form/Book";
 
 function App() {
   return (
