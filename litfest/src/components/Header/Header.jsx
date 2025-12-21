@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Header = ({onRegisterClick}) => {
   return (
     <header className="header">
-      <div className="logo">LitFest 2026</div>
+      <Link to="/" className="logo">LitFest 2026</Link>
       <nav className="nav">
         <a href="#about">About</a>
         <a href="#events">Events</a>
