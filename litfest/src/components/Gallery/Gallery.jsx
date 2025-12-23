@@ -26,7 +26,7 @@ const facultyData = [
 const Gallery = () => {
   return (
     <section id="gallery" className="gallery">
-      <h2>Gallery</h2>
+      <h2>Meet The Team</h2>
       <h3>Our Faculty</h3>
       <div className="faculty">
         
