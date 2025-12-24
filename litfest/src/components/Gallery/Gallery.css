@@ -1,7 +1,11 @@
 .gallery {
   padding: 120px 60px;
   text-align: center;
-  background: linear-gradient(180deg, rgba(15, 30, 20, 0.8) 0%, rgba(10, 15, 13, 0.6) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 30, 20, 0.8) 0%,
+    rgba(10, 15, 13, 0.6) 100%
+  );
   border-bottom: 1px solid rgba(127, 255, 161, 0.1);
 }
 
@@ -14,6 +18,13 @@
   text-shadow: 0 0 30px rgba(127, 255, 161, 0.1);
 }
 
+.gallery h3 {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
 .faculty {
   display: flex;
   justify-content: center;
@@ -24,29 +35,54 @@
   padding: 1rem 0;
 }
 
-
-.faculty-title {
-  text-align: center;
-  font-size: 1.5rem;
-  color: white;
-  margin-bottom: 2rem;
+.faculty::-webkit-scrollbar {
+  height: 6px;
 }
 
+.faculty::-webkit-scrollbar-thumb {
+  background: rgba(127, 255, 161, 0.3);
+  border-radius: 10px;
+}
+
+.head-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  justify-items: center;
+  overflow: visible;
+}
+
+@media (max-width: 1200px) {
+  .head-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .head-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 .gallery-card {
-  width: 300px;              
-  min-height: 320px;        
+  width: 300px;
+  min-height: 320px;
   background-color: #18181b;
   border-radius: 1rem;
   padding: 1.5rem;
   text-align: center;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   transition: transform 300ms ease;
-  flex-shrink: 0;            
+  flex-shrink: 0;
 }
 
 .gallery-card:hover {
   transform: scale(1.05);
+}
+
+.head-grid .gallery-card {
+  border: 1px solid rgba(127, 255, 161, 0.25);
 }
 
 .faculty-img {
@@ -56,4 +92,15 @@
   object-fit: cover;
   border: 4px solid #3f3f46;
   margin: 0 auto 1rem;
+}
+
+.gallery-card h4 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-card p {
+  font-size: 0.95rem;
+  color: #d4d4d8;
 }
