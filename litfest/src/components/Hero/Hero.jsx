@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Hero.css";
 import jungle from "../../assets/jungle.png";
+import logo from "../../assets/logo.svg";
 
 const Hero = () => {
   const [exiting, setExiting] = useState(false);
@@ -33,7 +34,8 @@ const Hero = () => {
     >
       <div className="hero-content">
         <div className="hero-panel">
-          <h1>LitFest 2026</h1>
+          <img src={logo} alt="LitFest 2026" className="hero-logo" />
+          
           <p className="hero-sub">Dive into a world of stories, magic, and imagination.</p>
           <a
             className="explore-btn"
