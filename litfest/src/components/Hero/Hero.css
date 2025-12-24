@@ -85,13 +85,13 @@
   background-position: center 20%;
 }
 
-.hero h1 {
-  margin: 0;
-  color: #fff;
-  font-weight: 800;
-  font-size: clamp(2.4rem, 6vw, 4rem);
-  letter-spacing: 0.6px;
-  text-align: center;
+.hero-logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  width: 450px;
+  /*filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));*/
 }
 
 .hero .hero-sub {
@@ -109,7 +109,7 @@
 @media (max-width: 720px) {
   .hero { padding: 40px 18px; }
   .hero-panel { padding: 36px 20px; width: calc(100% - 48px); }
-  .hero h1 { font-size: clamp(1.6rem, 7vw, 2.6rem); }
+  .hero-logo { width: 280px; }
   .explore-btn { padding: 12px 22px; }
 }
 
