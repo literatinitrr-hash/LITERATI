@@ -1,64 +1,36 @@
-import React, {useState} from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Login.css";
+
 
 function Login() {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(email);
-    console.log(password);
-    
-    
-  }
+    e.preventDefault();
+    console.log(email, password);
+  };
+
   return (
-    <div className="relative min-h-[100dvh] w-full overflow-hidden bg-black">
+    <div className="login-root">
+      <img src="/cave.gif" alt="background" className="login-bg" />
 
-     
-      <img
-        src="/cave.gif"
-        alt="background"
-        className="absolute inset-0 w-full h-full object-cover scale-105"
-      />
+      <div className="login-center">
+        <div className="login-book-wrapper">
+          <img src="/book-open.svg" alt="Book open" className="login-book" />
 
-      
-      <div className="relative inset-0 z-10 flex items-center justify-center min-h-[100dvh] ">
+          <div className="login-form-wrapper">
 
-       
-        <div className="relative w-[70%] max-w-[900px]">
+            <h2 className="login-title">Login Form</h2>
 
-          {/* Book */}
-          <img
-            src="/book-open.svg"
-            alt="Book open"
-            className="w-full h-auto"
-          />
-
-        
-          <div
-            className="
-              absolute
-              top-[18%]
-              left-[14%]
-              w-[35%]
-              font-Great Vibes
-              text-[#2a1a0a]
-            "
-          >
-            <h2 className="text-3xl italic mb-8 text-center ">
-              Login Form
-            </h2>
-
-            <form onSubmit={handleSubmit} className="max-w-[250px] mx-auto flex flex-col">
+            <form onSubmit={handleSubmit} className="login-form">
               <label>Email</label>
               <input
                 type="email"
                 placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="font-Great Vibes px-2 py-1 rounded-md focus:outline-none"
               />
 
               <label>Password</label>
@@ -67,33 +39,18 @@ function Login() {
                 placeholder="Enter Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="font-Great Vibes mb-3 px-2 py-1 rounded-md focus:outline-none"
               />
 
-              <a
-                className=" cursor-pointer text-sm italic underline text-right"
-              >
-                Forgot Password?
-              </a>
+              <a className="forgot-password">Forgot Password?</a>
 
-              <button
-                className=" bg-[#5A2D0C] rounded-full text-[#F5E6C8] px-6 py-2 mt-5 cursor-pointer"
-              >
-                Login
-              </button>
+              <button type="submit">Login</button>
 
-              <p className="text-sm italic mt-2 text-center">
+              <p className="register-text">
                 Don’t have an account?{" "}
-                <a
-                  onClick={() => navigate("/book")}
-                  className="underline font-semibold cursor-pointer"
-                >
-                  Register
-                </a>
+                <Link to="book">Register</Link>
               </p>
             </form>
           </div>
-
         </div>
       </div>
     </div>

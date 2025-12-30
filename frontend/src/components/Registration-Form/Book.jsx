@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Book.css";
+import bgGif from "../../assets/1213.gif";
+import bookSvg from "../../assets/slazzer-preview-npzbp.svg";
 
 const spreads = [
   {
@@ -53,8 +55,8 @@ const Book = () => {
 
   return (
     <div className="book-container book">
-      <img src="src/assets/1213.gif" className="bg" />
-      <img src="src/assets/slazzer-preview-npzbp.svg" className="book-img" />
+      <img src={bgGif} className="bg" alt="background" />
+      <img src={bookSvg} className="book-img" alt="book" />
 
       <form className="form" onSubmit={handleSubmit}>
 

@@ -1,0 +1,125 @@
+
+.login-root {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: black;
+}
+
+
+.login-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+}
+
+
+.login-center {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.login-book-wrapper {
+  position: relative;
+  width: 70%;
+  max-width: 900px;
+  margin-top: 100px;
+}
+
+.login-book {
+  width: 100%;
+  height: auto;
+}
+
+
+.login-form-wrapper {
+  position: absolute;
+  top: 18%;
+  left: 14%;
+  width: 35%;
+  color: #2a1a0a;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+
+.login-title {
+  font-size: 1.75rem;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+.login-form {
+  max-width: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.login-form label {
+  font-weight: 600;
+}
+
+
+.login-form input {
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+input::placeholder {
+    color: whitesmoke;
+    font-style: italic;
+}
+
+
+.forgot-password {
+  font-size: 0.875rem;
+  font-style: italic;
+  text-decoration: underline;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+.login-form button {
+  text-align: center;
+  background-color: #5A2D0C;
+  border-radius: 25px;
+  color: #F5E6C8;
+  cursor: pointer;
+  margin-top: 16px;
+  padding: 8px;
+  text-decoration: none;
+}
+
+
+.register-text {
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 800;
+}
+
+.register-text span {
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
