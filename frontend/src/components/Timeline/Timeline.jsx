@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './Timeline.css';
 
+const Timeline = () => {
+  return (
+    <section id="timeline" className="timeline">
+      <div className="timeline-content">
 const data = [
   { event: "EVENT 1", date: "28 February " },
   { event: "EVENT 2", date: "1 March" },
