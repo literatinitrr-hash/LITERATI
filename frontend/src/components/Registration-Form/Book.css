@@ -171,6 +171,8 @@ button {
 
 /* Book image (kept exactly as your original logic) */
 .book-img {
+  position: relative;
+  top:7%;
   height: 90%;
   width: auto;
   z-index: 1;
@@ -179,6 +181,7 @@ button {
 /* Form inside book — now aspect-ratio based */
 .form {
   position: absolute;
+  
 
   /* Scale relative to book height */
   height: 70%;
