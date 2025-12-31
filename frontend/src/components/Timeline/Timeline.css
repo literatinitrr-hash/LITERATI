@@ -38,6 +38,13 @@ body {
   border-top: 1px solid rgba(127, 255, 161, 0.1);
   border-bottom: 1px solid rgba(127, 255, 161, 0.1);
   font-family: "Times New Roman", Times, serif; 
+
+    background-image:
+    url("../../assets/timeline.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .timeline h2 {
