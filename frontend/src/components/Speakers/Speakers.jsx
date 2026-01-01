@@ -2,8 +2,8 @@ import React from "react";
 import "./Speakers.css";
 
 const list = [
-  { name: "Amit Sharma", title: "Author" },
-  { name: "Rhea Kapoor", title: "Poet" }
+  { name: "To Be Disclosed Soon", title: "Author" },
+  { name: "To Be Disclosed Soon", title: "Poet" }
 ];
 
 const Speakers = () => {
