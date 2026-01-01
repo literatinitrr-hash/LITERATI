@@ -1,12 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import './Timeline.css';
+import React, { useEffect, useRef } from "react";
+import "./Timeline.css";
 
-const Timeline = () => {
-  return (
-    <section id="timeline" className="timeline">
-      <div className="timeline-content">
 const data = [
-  { event: "EVENT 1", date: "28 February " },
+  { event: "EVENT 1", date: "28 February" },
   { event: "EVENT 2", date: "1 March" },
   { event: "EVENT 3", date: "2 March" },
   { event: "EVENT 4", date: "3 March" },
@@ -23,42 +19,46 @@ const Timeline = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            entry.target.classList.add("active");
           }
         });
       },
       { threshold: 0.5 }
     );
 
-    itemsRef.current.forEach(item => {
+    itemsRef.current.forEach((item) => {
       if (item) observer.observe(item);
     });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="timeline">
+    <section id="timeline" className="timeline">
       <h2>TIMELINE</h2>
 
       <div className="timeline-wrapper">
-        {/* Curvy Central Line */}
+      
         <svg className="curve" viewBox="0 0 200 1400">
-          <path d="
-            M100 0
-            C20 150, 180 300, 100 450
-            C20 600, 180 750, 100 900
-            C20 1050, 180 1200, 100 1400"
+          <path
+            d="
+              M100 0
+              C20 150, 180 300, 100 450
+              C20 600, 180 750, 100 900
+              C20 1050, 180 1200, 100 1400
+            "
           />
         </svg>
 
-        {/* Milestones */}
+       
         <div className="timeline-content">
           {data.map((item, index) => (
             <div
               key={index}
-              ref={el => (itemsRef.current[index] = el)}
+              ref={(el) => (itemsRef.current[index] = el)}
               className={`milestone ${index % 2 === 0 ? "left" : "right"}`}
             >
               <h3>{item.event}</h3>
