@@ -23,9 +23,9 @@ const Landing = ({onRegisterClick}) => {
       <About />
       <Events />
       <Speakers />
+      <Timeline />
       <Sponsors />
       <Gallery />
-      <Timeline />
       <Stats />
       <FAQ />
       <Footer />
