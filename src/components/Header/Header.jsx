@@ -22,7 +22,7 @@ const Header = () => {
         <nav className="nav">
           <a href="#about">About</a>
           <a href="#events" onClick={toggleEvents}>Events</a>
-          <a href="#speakers">Speakers</a>
+          <Link to="/admin">Enter As Admin</Link>
           <a href="#timeline">Timeline</a>
           <a className="register-btn" onClick={() => navigate("/register")}>Register</a>
         </nav>
@@ -36,10 +36,10 @@ const Header = () => {
                 ×
               </button>
             </div>
-            
+
             <div className="modal-body">
               <div className="modal-section">
-                <h2>Intro to Lit-Fest</h2> 
+                <h2>Intro to Lit-Fest</h2>
                 <p>
                   Be ready to hear the echoes of Tarzan as you are about to enter the world of jungle adventure!
                   The wait is finally over, as we are all set to host our first-ever Lit-Fest. Let’s dive right into it.
@@ -92,7 +92,7 @@ const Header = () => {
                           <p>Do you have the grit to navigate the thickets of trivia and emerge as the King of the Jungle? Join us for an adventure of wits that is truly wild!</p>
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td>Round 2</td>
                         <td><strong>The Pensieve Pitch</strong></td>
@@ -100,7 +100,7 @@ const Header = () => {
                           <p>Where raw wit meets electric expression in a battle of minds, it dives into a shimmering Pensieve brimming with vivid memories and untold stories. It is a space where every word becomes a spark, every pause a canvas, and every thought a ripple across minds. Here, wit is not just cleverness but the ability to turn insight into impact, while expression is the rhythm that gives voice to imagination. The Pensive Pitch invites participants to dance between humor and depth, logic and lyricism, crafting performances that dazzle with brilliance and linger with resonance. It is a celebration of language as both sword and song, where the mind speaks, and the heart listens.</p>
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td>Round 3</td>
                         <td><strong>Creativity Quest</strong></td>
@@ -110,7 +110,7 @@ const Header = () => {
                           <p>Don't worry, we will not ask you to write an entire book. Just complete the excerpt we provide, and remember to honour the original author by maintaining their tone and style. Now, it is time to dive in and let your imagination lead the way.</p>
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td>Final</td>
                         <td><strong>Air-Crash</strong></td>

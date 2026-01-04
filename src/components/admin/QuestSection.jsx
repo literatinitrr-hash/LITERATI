@@ -9,25 +9,39 @@ export default function QuestSection({
   participantId,
   onUpdate,
 }) {
+  if (!Array.isArray(quests)) return null;
+
   const subtotal = quests.reduce((a, b) => a + b, 0);
 
   return (
-    <section className="quest-section">
-      <h4>{title}</h4>
+    <section
+      className="quest-section"
+      role="region"
+      aria-labelledby={`${type}-title`}
+    >
+      <h4 id={`${type}-title`} className="quest-section-title">
+        {title}
+      </h4>
 
-      {quests.map((points, index) => (
-        <QuestRow
-          key={index}
-          label={`${title.slice(0, -1)} ${index + 1}`}
-          points={points}
-          onIncrement={() =>
-            onUpdate(participantId, type, index, +10)
-          }
-          onDecrement={() =>
-            onUpdate(participantId, type, index, -10)
-          }
-        />
-      ))}
+      {quests.length === 0 ? (
+        <div className="quest-empty">
+          No quests available
+        </div>
+      ) : (
+        quests.map((points, index) => (
+          <QuestRow
+            key={`${type}-${index}`}
+            label={`${title.replace(/s$/, "")} ${index + 1}`}
+            points={points}
+            onIncrement={() =>
+              onUpdate(participantId, type, index, 10)
+            }
+            onDecrement={() =>
+              onUpdate(participantId, type, index, -10)
+            }
+          />
+        ))
+      )}
 
       <SubtotalRow points={subtotal} />
     </section>

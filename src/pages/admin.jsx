@@ -1,17 +1,17 @@
 import { useMemo, useState } from "react";
-import JungleHeader from "./components/JungleHeader";
-import ScoreboardCard from "./components/ScoreboardCard";
-import ScoreboardHeader from "./components/ScoreboardHeader";
-import SearchBar from "./components/SearchBar";
-import ParticipantList from "./components/ParticipantList";
-import ParticipantRow from "./components/ParticipantRow";
-import FooterHint from "./components/FooterHint";
-import ParticipantModal from "./components/ParticipantModal";
-import "./admin.css";
+import JungleHeader from "../components/admin/JungleHeader";
+import ScoreboardCard from "../components/admin/ScoreboardCard";
+import ScoreboardHeader from "../components/admin/ScoreboardHeader";
+import SearchBar from "../components/admin/SearchBar";
+import ParticipantList from "../components/admin/ParticipantList";
+import ParticipantRow from "../components/admin/ParticipantRow";
+import FooterHint from "../components/admin/FooterHint";
+import ParticipantModal from "../components/admin/ParticipantModal";
+//import "C:\Users\OMEN\Downloads\New folder (2)\LITERATI\src\components\admin\admin.css";
 
 export default function Admin() {
   const [search, setSearch] = useState("");
-  const [selectedParticipant, setSelectedParticipant] = useState(null);
+  const [selectedParticipantId, setSelectedParticipantId] = useState(null);
 
   const [participants, setParticipants] = useState([
     {
@@ -40,18 +40,19 @@ export default function Admin() {
     },
   ]);
 
-  // 🔢 total calculator
+  // 🔢 total calculator (stable)
   const calculateTotalPoints = (p) =>
     [...p.questPoints.mainQuests, ...p.questPoints.sideQuests].reduce(
-      (a, b) => a + b,
+      (sum, val) => sum + val,
       0
     );
 
-  // 🧠 core mutation logic
+  // 🧠 mutation logic (safe + immutable)
   const updateQuestPoints = (id, type, index, delta) => {
     setParticipants((prev) =>
       prev.map((p) => {
         if (p.id !== id) return p;
+        if (!p.questPoints[type]) return p;
 
         const updated = [...p.questPoints[type]];
         updated[index] = Math.max(0, updated[index] + delta);
@@ -67,14 +68,23 @@ export default function Admin() {
     );
   };
 
+  // 🧠 derived + sorted view
   const visibleParticipants = useMemo(() => {
     return participants
       .filter((p) =>
         p.name.toLowerCase().includes(search.toLowerCase())
       )
-      .map((p) => ({ ...p, total: calculateTotalPoints(p) }))
+      .map((p) => ({
+        ...p,
+        total: calculateTotalPoints(p),
+      }))
       .sort((a, b) => b.total - a.total);
   }, [participants, search]);
+
+  // 🔗 synced modal participant
+  const selectedParticipant = participants.find(
+    (p) => p.id === selectedParticipantId
+  );
 
   return (
     <div className="admin-page">
@@ -92,7 +102,7 @@ export default function Admin() {
               name={p.name}
               points={p.total}
               isTop={index === 0}
-              onView={() => setSelectedParticipant(p)}
+              onView={() => setSelectedParticipantId(p.id)}
             />
           ))}
         </ParticipantList>
@@ -103,7 +113,7 @@ export default function Admin() {
       {selectedParticipant && (
         <ParticipantModal
           participant={selectedParticipant}
-          onClose={() => setSelectedParticipant(null)}
+          onClose={() => setSelectedParticipantId(null)}
           onUpdate={updateQuestPoints}
         />
       )}

@@ -1,6 +1,3 @@
-/* =========================
-   ROOT + GLOBAL
-========================= */
 :root {
   --bg-dark: #0b1a12;
   --bg-card: rgba(14, 28, 20, 0.9);
@@ -23,9 +20,6 @@ body {
   font-family: "Poppins", system-ui, sans-serif;
 }
 
-/* =========================
-   PAGE
-========================= */
 .admin-page {
   min-height: 100vh;
   padding: 48px 24px 80px;
@@ -35,9 +29,6 @@ body {
   gap: 40px;
 }
 
-/* =========================
-   JUNGLE HEADER
-========================= */
 .jungle-header {
   width: 100%;
   max-width: 1100px;
@@ -74,23 +65,19 @@ body {
   margin-top: 6px;
 }
 
-/* =========================
-   SCOREBOARD CARD
-========================= */
 .scoreboard-card {
   width: 100%;
   max-width: 1100px;
   background: linear-gradient(180deg, #0e2418, #09140e);
   border-radius: 28px;
   padding: 32px;
+  margin-top: 80px;
+  border: 1px solid rgba(127, 255, 161, 0.25);
   box-shadow:
     0 0 50px rgba(127, 255, 161, 0.15),
     inset 0 0 60px rgba(0, 0, 0, 0.8);
 }
 
-/* =========================
-   HEADER INSIDE CARD
-========================= */
 .scoreboard-header {
   margin-bottom: 24px;
 }
@@ -103,9 +90,6 @@ body {
   color: var(--text-muted);
 }
 
-/* =========================
-   SEARCH BAR
-========================= */
 .search-bar {
   display: flex;
   align-items: center;
@@ -130,9 +114,6 @@ body {
   color: var(--text-muted);
 }
 
-/* =========================
-   PARTICIPANT LIST
-========================= */
 .participant-list {
   display: flex;
   flex-direction: column;
@@ -142,9 +123,6 @@ body {
   padding-right: 6px;
 }
 
-/* =========================
-   PARTICIPANT ROW
-========================= */
 .participant-row {
   display: flex;
   justify-content: space-between;
@@ -209,9 +187,6 @@ body {
   color: var(--gold);
 }
 
-/* =========================
-   FOOTER HINT
-========================= */
 .footer-hint {
   margin-top: 28px;
   display: flex;
@@ -230,9 +205,6 @@ body {
   z-index: -1;
 }
 
-/* =========================
-   MODAL OVERLAY
-========================= */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -258,9 +230,6 @@ body {
     inset 0 0 60px rgba(0, 0, 0, 0.8);
 }
 
-/* =========================
-   MODAL HEADER
-========================= */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -285,9 +254,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* =========================
-   TOTAL POINTS
-========================= */
 .total-points-card {
   margin: 24px 0;
   padding: 20px;
@@ -305,9 +271,6 @@ body {
   color: var(--green-main);
 }
 
-/* =========================
-   QUEST SECTION
-========================= */
 .quest-section {
   margin-top: 28px;
   padding: 20px;
@@ -321,9 +284,6 @@ body {
   color: var(--green-soft);
 }
 
-/* =========================
-   QUEST ROW
-========================= */
 .quest-row {
   display: flex;
   justify-content: space-between;
@@ -362,9 +322,6 @@ body {
   text-align: center;
 }
 
-/* =========================
-   SUBTOTAL
-========================= */
 .subtotal-row {
   margin-top: 14px;
   padding-top: 12px;
@@ -373,4 +330,405 @@ body {
   justify-content: space-between;
   font-weight: 600;
   color: var(--gold);
+}
+
+
+
+
+
+.footer-hint {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  color: #d6ffe3;
+  font-size: 14px;
+}
+
+.footer-hint-icon {
+  color: #7fffa1;
+}
+
+.footer-hint-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #9ae6b4;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.footer-hint-close:hover {
+  opacity: 1;
+}
+
+
+
+.jungle-header {
+  position: relative;
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+
+.jungle-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.trophy-icon {
+  color: #7fffa1;
+  opacity: 0.75;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.trophy-icon.left {
+  transform: rotate(-12deg);
+}
+
+.trophy-icon.right {
+  transform: rotate(12deg);
+}
+
+.jungle-header:hover .trophy-icon {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.dashboard-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #eafff2;
+}
+
+.dashboard-subtitle {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #a7f3c2;
+  opacity: 0.85;
+}
+
+
+
+
+.participant-list {
+  margin-top: 20px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.participant-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.participant-list::-webkit-scrollbar-thumb {
+  background: rgba(127, 255, 161, 0.35);
+  border-radius: 6px;
+}
+
+.participant-empty {
+  padding: 32px;
+  text-align: center;
+  color: #9ae6b4;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+
+
+
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.participant-modal {
+  position: relative;
+  margin: 80px auto;
+  max-width: 520px;
+  background: linear-gradient(180deg, #0e2418, #09140e);
+  border-radius: 20px;
+  padding: 24px;
+  z-index: 60;
+  box-shadow: 0 0 40px rgba(127, 255, 161, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #eafff2;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: #9ae6b4;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.modal-close-btn:hover {
+  opacity: 1;
+}
+
+.total-points-card {
+  margin: 20px 0;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  color: #d6ffe3;
+}
+
+
+
+
+
+
+
+.participant-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.participant-row:hover,
+.participant-row:focus-visible {
+  background: rgba(127, 255, 161, 0.08);
+  transform: translateY(-1px);
+}
+
+.participant-row:focus-visible {
+  outline: 2px solid rgba(127, 255, 161, 0.4);
+}
+
+.top-rank {
+  background: linear-gradient(
+    90deg,
+    rgba(127, 255, 161, 0.18),
+    rgba(127, 255, 161, 0.05)
+  );
+}
+
+.rank-badge {
+  font-weight: 600;
+  color: #7fffa1;
+}
+
+.participant-points {
+  font-weight: 600;
+  color: #eafff2;
+}
+
+.view-btn {
+  background: none;
+  border: none;
+  color: #9ae6b4;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.view-btn:hover {
+  opacity: 1;
+}
+
+
+
+
+
+.quest-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.quest-label {
+  font-size: 14px;
+  color: #d6ffe3;
+}
+
+.quest-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quest-points {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+  color: #eafff2;
+}
+
+.quest-btn {
+  background: none;
+  border: none;
+  color: #9ae6b4;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.85;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.quest-btn:hover:not(:disabled) {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.quest-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+.quest-section {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.quest-section-title {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #eafff2;
+}
+
+.quest-empty {
+  padding: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #9ae6b4;
+  opacity: 0.75;
+}
+
+
+
+.scoreboard-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+
+
+.scoreboard-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scoreboard-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #eafff2;
+}
+
+.scoreboard-subtitle {
+  font-size: 13px;
+  color: #9ae6b4;
+  opacity: 0.85;
+}
+
+
+
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #eafff2;
+  font-size: 14px;
+}
+
+.search-icon {
+  color: #9ae6b4;
+  opacity: 0.8;
+}
+
+.search-clear {
+  background: none;
+  border: none;
+  color: #9ae6b4;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.search-clear:hover {
+  opacity: 1;
+}
+
+
+
+
+
+.subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(127, 255, 161, 0.25);
+}
+
+.subtotal-label {
+  font-size: 13px;
+  color: #9ae6b4;
+  opacity: 0.9;
+}
+
+.subtotal-points {
+  font-weight: 700;
+  font-size: 15px;
+  color: #eafff2;
 }

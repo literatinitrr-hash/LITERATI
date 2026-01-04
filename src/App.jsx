@@ -10,6 +10,7 @@ import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import ClosedBook from "./components/ClosedBook/ClosedBook";
 import Leaderboard from "./components/Dashboard/Leaderboard";
 import Dashboard from "./pages/Dashboard";
+import Admin from "./pages/admin"
 // import "./App.css";
 
 const AnimatedRoutes = () => {
@@ -19,38 +20,29 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Landing />} />
-          <Route path="/register" element={<Register />}>
-          <Route index element={<ClosedBook />} />
-          <Route path="login" element={<Login />} />
-          <Route path="book" element={<Book />} />
+
+        <Route path="/register" element={<Register />}>
+        <Route index element={<ClosedBook />} />
+        <Route path="login" element={<Login />} />
+        <Route path="book" element={<Book />} />
         </Route>
 
         <Route path="dashboard" element={<Dashboard />}>
-          <Route index element={<Leaderboard />} />
+        <Route index element={<Leaderboard />} />
         </Route>
+
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </AnimatePresence>
   );
+
 };
 
 function App() {
-  
-
   return (
     <Router>
-      <AudioPlayer/>
-      <Routes>
-        <Route path="/" element={<Landing />}/>
-        <Route path="/register" element={<Register />}>
-    <Route index element={<ClosedBook />} />
-    <Route path="login" element={<Login />} />
-    <Route path="book" element={<Book />} />
-  </Route>
-
-  <Route path="dashboard" element={<Dashboard />}>
-    <Route index element={<Leaderboard />} />
-  </Route>
-</Routes>
+      <AudioPlayer />
+      <AnimatedRoutes />
     </Router>
   );
 }

@@ -8,8 +8,22 @@ export default function ParticipantRow({
   isTop,
   onView,
 }) {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onView();
+    }
+  };
+
   return (
-    <div className={`participant-row ${isTop ? "top-rank" : ""}`}>
+    <div
+      className={`participant-row ${isTop ? "top-rank" : ""}`}
+      role="listitem"
+      tabIndex={0}
+      onClick={onView}
+      onKeyDown={handleKeyDown}
+      aria-label={`View details for ${name}`}
+    >
       <div className="participant-left">
         <span className="rank-badge">#{rank}</span>
         <span className="participant-name">{name}</span>
@@ -20,8 +34,11 @@ export default function ParticipantRow({
 
         <button
           className="view-btn"
-          onClick={onView}
-          aria-label="View participant details"
+          onClick={(e) => {
+            e.stopPropagation();
+            onView();
+          }}
+          aria-label={`View ${name}`}
         >
           <Eye size={18} />
         </button>

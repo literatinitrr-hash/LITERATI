@@ -1,4 +1,5 @@
 import { X, Trophy } from "lucide-react";
+import { useEffect, useRef } from "react";
 import QuestSection from "./QuestSection";
 import "./admin.css";
 
@@ -7,28 +8,52 @@ export default function ParticipantModal({
   onClose,
   onUpdate,
 }) {
+  const modalRef = useRef(null);
+
   if (!participant) return null;
 
   const { id, name, questPoints } = participant;
 
-  const total =
-    [...questPoints.mainQuests, ...questPoints.sideQuests].reduce(
-      (a, b) => a + b,
-      0
-    );
+  const total = [
+    ...questPoints.mainQuests,
+    ...questPoints.sideQuests,
+  ].reduce((a, b) => a + b, 0);
+
+  // ESC key close
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [onClose]);
 
   return (
-    <div className="modal-overlay">
+    <div
+      className="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="participant-modal-title"
+    >
       <div className="modal-backdrop" onClick={onClose} />
 
-      <div className="participant-modal">
+      <div
+        className="participant-modal"
+        ref={modalRef}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal-header">
           <div className="modal-title-block">
-            <Trophy />
-            <h3>{name}</h3>
+            <Trophy size={18} />
+            <h3 id="participant-modal-title">{name}</h3>
           </div>
-          <button onClick={onClose}>
-            <X />
+
+          <button
+            className="modal-close-btn"
+            onClick={onClose}
+            aria-label="Close modal"
+          >
+            <X size={18} />
           </button>
         </div>
 

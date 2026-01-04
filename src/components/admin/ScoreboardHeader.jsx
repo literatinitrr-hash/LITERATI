@@ -1,12 +1,21 @@
 import "./admin.css";
 
-export default function ScoreboardHeader() {
+export default function ScoreboardHeader({
+  title = "Scoreboard",
+  subtitle = "Manage team points and rankings",
+}) {
   return (
-    <div className="scoreboard-header">
-      <h2 className="scoreboard-title">Scoreboard</h2>
+    <header
+      className="scoreboard-header"
+      role="heading"
+      aria-level={2}
+    >
+      <h2 className="scoreboard-title">
+        {title}
+      </h2>
       <p className="scoreboard-subtitle">
-        Manage team points and rankings
+        {subtitle}
       </p>
-    </div>
+    </header>
   );
 }
