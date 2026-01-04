@@ -1,22 +1,21 @@
 import React from 'react'
-import { Outlet } from "react-router-dom";
-import entrance from '../assets/entrance.jfif'
+import { Outlet } from "react-router-dom"
+import forest from '../assets/forest.jfif'
+import './Dashboard.css'
 
 function Dashboard() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div className="dashboard">
       
       <img
-  src={entrance}
-  alt="test"
-  className="absolute inset-0 w-full h-full object-cover"
-/>
+        src={forest}
+        alt="test"
+        className="dashboard-bg"
+      />
 
-      
-      <div className="absolute inset-0 bg-black/40 " />
+      <div className="dashboard-overlay" />
 
-      
-      <div className="relative z-10 p-20">
+      <div className="dashboard-content">
         <Outlet />
       </div>
 

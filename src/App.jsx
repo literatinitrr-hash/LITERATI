@@ -8,9 +8,8 @@ import Profile from "./pages/Profile"
 import Login from "./components/Login/Login";
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import ClosedBook from "./components/ClosedBook/ClosedBook";
-import Leaderboard from "./components/Profile/Leaderboard";
+import Leaderboard from "./components/Dashboard/Leaderboard";
 import Dashboard from "./pages/Dashboard";
-import Prior from "./components/Dashboard/Prior";
 // import "./App.css";
 
 const AnimatedRoutes = () => {
@@ -20,16 +19,15 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Landing />} />
-        
-        <Route path="dashboard" element={<Dashboard />}>
-          <Route index element={<Prior />} />
-        </Route>
-        {/* <Route path="/register" element={<Register />}>
+          <Route path="/register" element={<Register />}>
           <Route index element={<ClosedBook />} />
-          <Route path="login" element={<Login />}/>
+          <Route path="login" element={<Login />} />
           <Route path="book" element={<Book />} />
-        </Route> 
-        */}
+        </Route>
+
+        <Route path="dashboard" element={<Dashboard />}>
+          <Route index element={<Leaderboard />} />
+        </Route>
       </Routes>
     </AnimatePresence>
   );
@@ -43,20 +41,16 @@ function App() {
       <AudioPlayer/>
       <Routes>
         <Route path="/" element={<Landing />}/>
-        <Route path="dashboard" element={<Dashboard />}>
-        <Route index element={<Prior />} />
-        </Route>
-        
-        <Route path="/book" element={<Book />} />
-        <Route path="/login" element={<Login />}/>
-       {/* <Route path="/register" element={<Register />}>
-        <Route index element={<ClosedBook />} />
-        </Route>
-        
-        <Route path="dashboard" element={<Dashboard />}>
-        <Route index element={<Prior />} />
-        </Route> */}
-      </Routes>  
+        <Route path="/register" element={<Register />}>
+    <Route index element={<ClosedBook />} />
+    <Route path="login" element={<Login />} />
+    <Route path="book" element={<Book />} />
+  </Route>
+
+  <Route path="dashboard" element={<Dashboard />}>
+    <Route index element={<Leaderboard />} />
+  </Route>
+</Routes>
     </Router>
   );
 }

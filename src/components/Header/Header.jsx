@@ -24,7 +24,7 @@ const Header = () => {
           <a href="#events" onClick={toggleEvents}>Events</a>
           <a href="#speakers">Speakers</a>
           <a href="#timeline">Timeline</a>
-          <a className="register-btn" onClick={() => navigate("/dashboard")}>Register</a>
+          <a className="register-btn" onClick={() => navigate("/register")}>Register</a>
         </nav>
       </header>
       {isEventsOpen && (
