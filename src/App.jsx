@@ -42,6 +42,16 @@ function App() {
   return (
     <Router>
       <AudioPlayer />
+
+      <div className="fireflies-container">
+        <div className="firefly-group left delay-1" />
+        <div className="firefly-group left delay-2" />
+        <div className="firefly-group left delay-3" />
+        <div className="firefly-group right delay-1" />
+        <div className="firefly-group right delay-2" />
+        <div className="firefly-group right delay-3" />
+      </div>
+
       <AnimatedRoutes />
     </Router>
   );
