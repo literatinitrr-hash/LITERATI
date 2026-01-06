@@ -60,7 +60,7 @@ const handleSubmit = async (e) => {
     localStorage.setItem("token", data.token);
 
     // Navigate ONLY after success
-    navigate("/dashboard");
+    navigate("/login");
 
   } catch (error) {
     // Axios error handling

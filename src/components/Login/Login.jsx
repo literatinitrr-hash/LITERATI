@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from '@react-oauth/google'
+import { jwtDecode } from 'jwt-decode'
+
 
 
 
@@ -12,6 +15,40 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+      const email = decoded.email;
+
+      const res = await fetch('http://localhost:5000/api/auth/google-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.msg);
+      }
+
+      // Store token
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+
+      // Navigate to dashboard
+      navigate('/dashboard');
+
+    } catch (err) {
+      alert(err.message || 'Google login failed');
+    }
+  }
+
+  
 
 
 
@@ -72,10 +109,14 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <a className="forgot-password">Forgot Password?</a>
               {error && <p className="error-text">{error}</p>}
 
               <button type="submit">Login</button>
+
+              <GoogleLogin  
+              onSuccess={(handleGoogleLogin)} 
+                  
+              onError={(err)=>{console.log("login failed")}} />
 
               <p className="register-text">
                 Don’t have an account?{" "}

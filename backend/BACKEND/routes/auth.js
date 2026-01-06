@@ -125,4 +125,44 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// ====================Google Login=======================
+
+router.post('/google-login', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        msg: 'User not found. Please register first.',
+      });
+    }
+
+    const payload = { id: user._id };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: '24h',
+    });
+
+    res.json({
+      success: true,
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        totalPoints: user.totalPoints,
+      },
+    });
+  } catch (err) {
+    console.error('Google login error:', err);
+    res.status(500).json({
+      success: false,
+      msg: 'Server error',
+    });
+  }
+});
+
+
 module.exports = router;
