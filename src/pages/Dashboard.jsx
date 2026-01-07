@@ -1,7 +1,8 @@
 import React from 'react'
 import { Outlet } from "react-router-dom"
+import Profile from './Profile'
 import forest from '../assets/forest.jfif'
-import './Dashboard.css'
+import '../styles/Dashboard.css'
 
 function Dashboard() {
   return (
@@ -16,6 +17,7 @@ function Dashboard() {
       <div className="dashboard-overlay" />
 
       <div className="dashboard-content">
+        <Profile />
         <Outlet />
       </div>
 

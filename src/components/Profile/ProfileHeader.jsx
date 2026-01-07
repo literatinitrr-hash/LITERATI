@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProfileHeader.css';
 
+
 const ProfileHeader = () => {
   const userData = {
     name: 'Riya Sharma',

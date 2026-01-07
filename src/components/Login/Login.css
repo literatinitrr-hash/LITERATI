@@ -1,4 +1,6 @@
-
+/* =========================
+   ROOT & BACKGROUND
+========================= */
 .login-root {
   position: relative;
   min-height: 100vh;
@@ -6,13 +8,6 @@
   overflow: hidden;
   background: black;
 }
-.error-text {
-  color: #ff4d4f;
-  font-size: 14px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
 
 .login-bg {
   position: absolute;
@@ -23,7 +18,9 @@
   transform: scale(1.05);
 }
 
-
+/* =========================
+   CENTERING
+========================= */
 .login-center {
   position: relative;
   z-index: 10;
@@ -33,30 +30,34 @@
   justify-content: center;
 }
 
-
+/* =========================
+   BOOK CONTAINER (CRITICAL)
+========================= */
 .login-book-wrapper {
   position: relative;
   width: 70%;
-  max-width: 900px;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;   /* 🔒 LOCK PROPORTIONS */
   margin-top: 100px;
 }
 
 .login-book {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
-
+/* =========================
+   FORM ON LEFT PAGE
+========================= */
 .login-form-wrapper {
   position: absolute;
-  top: 18%;
-  left: 14%;
-  width: 35%;
+  top: 15%;     /* move slightly down */
+  left: 19%;    /* move right into page */
+  width: 30%;   /* tighter fit inside page */
   color: #2a1a0a;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 1.2rem;
 }
-
 
 .login-title {
   font-size: 1.75rem;
@@ -65,7 +66,6 @@
   margin-bottom: 2rem;
 }
 
-
 .login-form {
   max-width: 250px;
   margin: 0 auto;
@@ -73,11 +73,9 @@
   flex-direction: column;
 }
 
-
 .login-form label {
   font-weight: 600;
 }
-
 
 .login-form input {
   padding: 6px 8px;
@@ -89,33 +87,35 @@
 }
 
 input::placeholder {
-    color: whitesmoke;
-    font-style: italic;
-}
-
-
-.forgot-password {
-  font-size: 0.875rem;
+  color: whitesmoke;
   font-style: italic;
-  text-decoration: underline;
-  text-align: right;
-  cursor: pointer;
-  margin-bottom: 10px;
 }
-
 
 .login-form button {
-  margin-bottom: 1em;
-  text-align: center;
+  margin-top: 16px;
+  padding: 8px;
   background-color: #5A2D0C;
   border-radius: 25px;
   color: #F5E6C8;
   cursor: pointer;
-  margin-top: 16px;
-  padding: 8px;
-  text-decoration: none;
 }
 
+/* Google button centering */
+.login-form > div {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================
+   TEXT & LINKS
+========================= */
+.error-text {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
 .register-text {
   font-size: 0.875rem;
@@ -125,8 +125,32 @@ input::placeholder {
   font-weight: 800;
 }
 
-.register-text span {
+.register-text span,
+.register-text a {
   font-weight: 600;
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* =========================
+   MOBILE (CLEAN FALLBACK)
+========================= */
+@media (max-width: 600px) {
+  .login-book {
+    display: none;
+  }
+
+  .login-book-wrapper {
+    width: 100%;
+    aspect-ratio: auto;
+  }
+
+  .login-form-wrapper {
+    position: relative;
+    width: 90%;
+    margin: 40px auto 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #F5E6C8;
+    border-radius: 12px;
+  }
 }
