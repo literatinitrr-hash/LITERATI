@@ -3,11 +3,20 @@
 ========================= */
 .login-root {
   position: relative;
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
+.error-text {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 
 .login-bg {
   position: absolute;
@@ -15,7 +24,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.05);
 }
 
 /* =========================
@@ -24,6 +32,7 @@
 .login-center {
   position: relative;
   z-index: 10;
+  
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -35,42 +44,64 @@
 ========================= */
 .login-book-wrapper {
   position: relative;
-  width: 70%;
-  max-width: 1000px;
-  aspect-ratio: 16 / 9;   /* 🔒 LOCK PROPORTIONS */
+  display: flex;
+  width:32%;
+  background-color: red;
+  aspect-ratio: 491.92 / 375.32;
   margin-top: 100px;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-book {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  position: relative;
+  top:-2%;
+  height: 80%;
+  width: auto;
+  z-index: 1;
 }
 
-/* =========================
-   FORM ON LEFT PAGE
-========================= */
-.login-form-wrapper {
+
+/* .login-form-wrapper {
   position: absolute;
-  top: 15%;     /* move slightly down */
-  left: 19%;    /* move right into page */
-  width: 30%;   /* tighter fit inside page */
+  background-color: red;
+  top: 18%;
+  left: 10%;
+  height: 0%;
+  aspect-ratio: 491.92 / 375.32;
   color: #2a1a0a;
-  padding: 1.2rem;
-}
+  padding: 1rem;
+  border-radius: 10px;
+
+} */
+
 
 .login-title {
-  font-size: 1.75rem;
+  color: black;
+  font-size: clamp(1.1em, 2vw, 1.4em);
   font-style: italic;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5em;
 }
 
 .login-form {
-  max-width: 250px;
-  margin: 0 auto;
+  color: black;
+   position: absolute;
+   left: 30%;
+   top: 30%;
+
+  /* Scale relative to book height */
+  height: 30%;
+  aspect-ratio: 491.92 / 375.32;
+
+  max-height: 600px;
+  max-width: 90vw;
+
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .login-form label {
@@ -132,25 +163,45 @@ input::placeholder {
   cursor: pointer;
 }
 
-/* =========================
-   MOBILE (CLEAN FALLBACK)
-========================= */
-@media (max-width: 600px) {
+
+@media (max-width: 768px) {
+  .login-form {
+    /* top: 20%; */
+    left: 13%;
+    width: 70%;
+    aspect-ratio: 375.32 / 491.92;
+  }
+
+  .spread {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+
   .login-book {
-    display: none;
+    height: 75%;
+    left: 20vh;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1026px) {
+  .login-form {
+    left: 5%;
+    width: 55%;
+    aspect-ratio: 375.32 / 491.92;
+  }
+  .login-form button{
+    width: 50%;
+    align-self: center;
+  }
+  
+
+  .spread {
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
   }
 
-  .login-book-wrapper {
-    width: 100%;
-    aspect-ratio: auto;
-  }
-
-  .login-form-wrapper {
-    position: relative;
-    width: 90%;
-    margin: 40px auto 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: #F5E6C8;
-    border-radius: 12px;
+  .login-book {
+    height: 80%;
+    left:10vh ;
   }
 }

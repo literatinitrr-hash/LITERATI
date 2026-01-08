@@ -173,7 +173,7 @@ button {
 /* Book image (kept exactly as your original logic) */
 .book-img {
   position: relative;
-  top:7%;
+  top:-2%;
   height: 90%;
   width: auto;
   z-index: 1;
@@ -182,6 +182,7 @@ button {
 /* Form inside book — now aspect-ratio based */
 .form {
   position: absolute;
+  top: 7%;
   
 
   /* Scale relative to book height */
@@ -217,6 +218,7 @@ button {
 
 .heading {
   font-size: clamp(1.1em, 2vw, 1.4em);
+  text-decoration: underline;
 }
 
 .page input {
@@ -266,17 +268,42 @@ button:disabled {
 /* Mobile: stack pages */
 @media (max-width: 768px) {
   .form {
-    height: 70%;
-    aspect-ratio: 491.92 / 375.32;
+    top: 13%;
+    left: 13%;
+    width: 70%;
+    aspect-ratio: 375.32 / 491.92;
   }
 
   .spread {
     grid-template-columns: 1fr;
-    gap: 1.5em;
+    gap: 1em;
   }
 
   .book-img {
     height: 75%;
+    left: 20vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form {
+    font-size: 1.5em;
+    top: 20%;
+    left: 10%;
+    width: 84%;
+    aspect-ratio: 375.32 / 491.92;
+  }
+  
+
+  .spread {
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+  }
+
+  .book-img {
+    height: 60%;
+    left: 2%;
+    
   }
 }
 

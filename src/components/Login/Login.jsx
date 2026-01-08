@@ -79,16 +79,10 @@ function Login() {
   return (
     <div className="login-root">
       <img src="/cave.gif" alt="background" className="login-bg" />
-
-      <div className="login-center">
-        <div className="login-book-wrapper">
           <img src="/book-open.svg" alt="Book open" className="login-book" />
 
-          <div className="login-form-wrapper">
-
-            <h2 className="login-title">Login Form</h2>
-
-            <form onSubmit={handleSubmit} className="login-form">
+       <form onSubmit={handleSubmit} className="login-form">
+              <h2 className="login-title">Login Form</h2>
               <label>Email</label>
               <input
                 type="email"
@@ -113,7 +107,8 @@ function Login() {
 
               <button type="submit">Login</button>
 
-              <GoogleLogin  
+              <GoogleLogin 
+              className="google-button" 
               onSuccess={(handleGoogleLogin)} 
                   
               onError={(err)=>{console.log("login failed")}} />
@@ -123,10 +118,7 @@ function Login() {
                 <Link to="../book">Register</Link>
               </p>
             </form>
-          </div>
         </div>
-      </div>
-    </div>
   );
 }
 
