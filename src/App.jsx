@@ -11,6 +11,7 @@ import ClosedBook from "./components/ClosedBook/ClosedBook";
 import Leaderboard from "./components/Dashboard/Leaderboard";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/admin"
+import AdminLogin from "./components/admin/adminLogin";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 // import "./App.css";
 
@@ -34,7 +35,7 @@ const AnimatedRoutes = () => {
         <Route index element={<Leaderboard />} />
         </Route>
 
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/adminlogin" element={<AdminLogin />} />
       </Routes>
     </AnimatePresence>
   );

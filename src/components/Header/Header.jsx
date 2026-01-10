@@ -25,7 +25,7 @@ const Header = () => {
           <a href="#events" onClick={(e) => {toggleEvents(e); setMenuOpen(false);}}>
             Events
             </a>   
-          <Link to="/admin" onClick={() => setMenuOpen(false)}>
+          <Link to="/adminlogin" onClick={() => setMenuOpen(false)}>
           Enter As Admin
           </Link>
           <a href="#timeline" onClick={() => setMenuOpen(false)}>Timeline</a>
