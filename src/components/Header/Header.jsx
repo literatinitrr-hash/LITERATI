@@ -6,6 +6,7 @@ import logo from "../../assets/logo.svg";
 const Header = () => {
   const navigate = useNavigate();
   const [isEventsOpen, setIsEventsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleEvents = (e) => {
     e.preventDefault();
@@ -19,13 +20,33 @@ const Header = () => {
           <img src={logo} alt="Litfest 2026" />
         </Link>
 
-        <nav className="nav">
-          <a href="#about">About</a>
-          <a href="#events" onClick={toggleEvents}>Events</a>
-          <Link to="/admin">Enter As Admin</Link>
-          <a href="#timeline">Timeline</a>
-          <a className="register-btn" onClick={() => navigate("/register")}>Register</a>
+        <nav className={`nav ${menuOpen ? "active" : ""}`}>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#events" onClick={(e) => {toggleEvents(e); setMenuOpen(false);}}>
+            Events
+            </a>   
+          <Link to="/admin" onClick={() => setMenuOpen(false)}>
+          Enter As Admin
+          </Link>
+          <a href="#timeline" onClick={() => setMenuOpen(false)}>Timeline</a>
+          <a 
+          className="register-btn"
+          onClick={() => {
+            navigate("/register");
+            setMenuOpen(false);
+          }}
+          >
+            Register
+          </a>     
         </nav>
+
+        <button className="menu-toggle"
+                onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+
+        
       </header>
       {isEventsOpen && (
         <div className="modal-overlay" onClick={() => setIsEventsOpen(false)}>

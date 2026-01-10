@@ -22,7 +22,11 @@ const ProfileHeader = () => {
       .join('');
   };
 
+  
+  
+
   return (
+    
     <div className="profile-header">
       <div className="profile-header-content">
         <div className="avatar-section">
@@ -55,6 +59,7 @@ const ProfileHeader = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

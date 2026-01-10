@@ -10,10 +10,13 @@ const Profile = () => {
   return (
     <div className = "app-container">
       {/* Main Content */}
-      <div className="leaderboard-header">
-        <FaUserCircle className='profile-icon' />
+      <div className="profile-top">
+        <div className='profile-left'>
+          <FaUserCircle className='profile-icon' />
               <h1>YOUR PROFILE</h1>
-            </div>
+        </div>
+              <button className='logout-button'>Log Out</button>
+      </div>
       <main className="profile-content">
         <ProfileHeader />
         {/* <ScoreBreakdown /> */}
