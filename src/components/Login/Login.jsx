@@ -19,13 +19,15 @@ function Login() {
 
   const handleGoogleLogin = async (credentialResponse) => {
     try {
+      const API = import.meta.env.VITE_API_URL;
+
       const decoded = jwtDecode(credentialResponse.credential);
       const email = decoded.email;
 
-      const res = await fetch('http://localhost:5000/api/auth/google-login', {
-        method: 'POST',
+      const res = await fetch(`${API}/api/auth/google-login`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email }),
       });
@@ -37,88 +39,86 @@ function Login() {
       }
 
       // Store token
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       // Navigate to dashboard
-      navigate('/dashboard');
-
+      navigate("/dashboard");
     } catch (err) {
-      alert(err.message || 'Google login failed');
+      alert(err.message || "Google login failed");
     }
-  }
-
-  
-
+  };
 
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  console.log("Login button clicked");
+    e.preventDefault();
+    console.log("Login button clicked");
 
-  try {
-    const res = await axios.post(
-      "http://localhost:5000/api/auth/login",
-      { email, password }
-    );
+    try {
+      const API = import.meta.env.VITE_API_URL;
 
-    console.log("Backend response:", res.data);
+      const res = await axios.post(
+        `${API}/api/auth/login`,
+        { email, password }
+      );
 
-    localStorage.setItem("token", res.data.token);
-    navigate("/dashboard");
-  } catch (err) {
-  const message =
-    err.response?.data?.message || "Something went wrong";
+      console.log("Backend response:", res.data);
 
-  setError(message);
-}
+      localStorage.setItem("token", res.data.token);
+      navigate("/dashboard");
+    } catch (err) {
+      const message =
+        err.response?.data?.message || "Something went wrong";
 
-};
+      setError(message);
+    }
+
+  };
 
 
   return (
     <div className="login-root">
       <img src="/cave.gif" alt="background" className="login-bg" />
-          <img src="/book-open.svg" alt="Book open" className="login-book" />
+      <img src="/book-open.svg" alt="Book open" className="login-book" />
 
-       <form onSubmit={handleSubmit} className="login-form">
-              <h2 className="login-title">Login Form</h2>
-              <label>Email</label>
-              <input
-                type="email"
-                placeholder="Enter Email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  setError("");
-                }}
+      <form onSubmit={handleSubmit} className="login-form">
+        <h2 className="login-title">Login Form</h2>
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setError("");
+          }}
 
-              />
+        />
 
-              <label>Password</label>
-              <input
-                type="password"
-                placeholder="Enter Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-              {error && <p className="error-text">{error}</p>}
+        {error && <p className="error-text">{error}</p>}
 
-              <button type="submit">Login</button>
+        <button type="submit">Login</button>
 
-              <GoogleLogin 
-              className="google-button" 
-              onSuccess={(handleGoogleLogin)} 
-                  
-              onError={(err)=>{console.log("login failed")}} />
+        <GoogleLogin
+          className="google-button"
+          onSuccess={(handleGoogleLogin)}
 
-              <p className="register-text">
-                Don’t have an account?{" "}
-                <Link to="../book">Register</Link>
-              </p>
-            </form>
-        </div>
+          onError={(err) => { console.log("login failed") }} />
+
+        <p className="register-text">
+          Don’t have an account?{" "}
+          <Link to="../book">Register</Link>
+        </p>
+      </form>
+    </div>
   );
 }
 

@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import "./Book.css";
 import bgGif from "../../assets/1213.gif";
 import bookSvg from "../../assets/slazzer-preview-npzbp.svg";
+import { Meta } from "react-router-dom";
 import axios from "axios";
 
 const spreads = [
@@ -40,29 +41,29 @@ const Book = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+try {
+  const API = import.meta.env.VITE_API_URL;
 
-  try {
-    const response = await axios.post(
-      "http://localhost:5000/api/auth/register",
-      formData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+  const response = await axios.post(
+    `${API}/api/auth/register`,
+    formData,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
-    const data = response.data;
+  const data = response.data;
 
-    console.log("Registration successful:", data);
+  console.log("Registration successful:", data);
 
-    // Store token
-    localStorage.setItem("token", data.token);
+  // Store token
+  localStorage.setItem("token", data.token);
 
-    // Navigate ONLY after success
-    navigate("/login");
-
-  } catch (error) {
+  // Navigate ONLY after success
+  navigate("/login");
+} catch (error) {
     // Axios error handling
     const message =
       error.response?.data?.msg || 
