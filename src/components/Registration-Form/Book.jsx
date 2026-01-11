@@ -62,7 +62,7 @@ try {
   localStorage.setItem("token", data.token);
 
   // Navigate ONLY after success
-  navigate("/login");
+  navigate("/");
 } catch (error) {
     // Axios error handling
     const message =
