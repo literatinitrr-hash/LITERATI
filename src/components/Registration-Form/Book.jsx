@@ -41,6 +41,8 @@ const Book = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  
+console.log("Form Data being sent:", formData);
 try {
   const API = import.meta.env.VITE_API_URL;
 
