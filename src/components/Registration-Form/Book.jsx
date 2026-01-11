@@ -19,10 +19,7 @@ const spreads = [
     ],
   },
   {
-    left: [
-      { label: "Year / Class", name: "year", type: "text" },
-      { label: "Major", name: "major", type: "text" },
-    ],
+    left: [],
     right: [
       { label: "City", name: "city", type: "text" },
       { label: "State", name: "state", type: "text" },
