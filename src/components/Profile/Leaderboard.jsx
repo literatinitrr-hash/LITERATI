@@ -11,27 +11,7 @@ const Leaderboard = () => {
   const currentUserId = 'IN2026-4721';
   const currentUserRank = 12;
 
-  const leaderboardData = [
-  { rank: 1, name: 'Aarav Mehta', userId: 'IN2026-1001', college: 'IIT Bombay', score: 17_500 },
-  { rank: 2, name: 'Ananya Sharma', userId: 'IN2026-1002', college: 'IIT Delhi', score: 16_800 },
-  { rank: 3, name: 'Vivaan Kapoor', userId: 'IN2026-1003', college: 'IIT Kanpur', score: 16_200 },
-  { rank: 4, name: 'Saanvi Reddy', userId: 'IN2026-1004', college: 'IIT Madras', score: 16_000 },
-  { rank: 5, name: 'Arjun Patel', userId: 'IN2026-1005', college: 'BITS Pilani', score: 15_900 },
-  { rank: 6, name: 'Ishita Singh', userId: 'IN2026-1006', college: 'IISc Bangalore', score: 15_700 },
-  { rank: 7, name: 'Kabir Nair', userId: 'IN2026-1007', college: 'IIT Hyderabad', score: 15_500 },
-  { rank: 8, name: 'Diya Jain', userId: 'IN2026-1008', college: 'VIT Vellore', score: 15_400 },
-  { rank: 9, name: 'Rohan Verma', userId: 'IN2026-1009', college: 'IIT Guwahati', score: 15_350 },
-  { rank: 10, name: 'Meera Iyer', userId: 'IN2026-1010', college: 'BITS Pilani', score: 15_300 },
-  { rank: 11, name: 'Aditya Khanna', userId: 'IN2026-1011', college: 'IIT Roorkee', score: 15_250 },
-  { rank: 12, name: 'Riya Sharma', userId: 'IN2026-4721', college: 'IIT Delhi', score: 15_230 }, // current user
-  { rank: 13, name: 'Devansh Choudhary', userId: 'IN2026-1013', college: 'IIT BHU', score: 15_100 },
-  { rank: 14, name: 'Siddhi Desai', userId: 'IN2026-1014', college: 'IIT Indore', score: 14_900 },
-  { rank: 15, name: 'Aryan Singh', userId: 'IN2026-1015', college: 'NIT Trichy', score: 14_700 },
-  { rank: 16, name: 'Tanya Ghosh', userId: 'IN2026-1016', college: 'IIT Patna', score: 14_500 },
-  { rank: 17, name: 'Neil Sharma', userId: 'IN2026-1017', college: 'NIT Surathkal', score: 14_200 },
-  { rank: 18, name: 'Anika Rao', userId: 'IN2026-1018', college: 'IIT Dhanbad', score: 13_900 },
-  { rank: 19, name: 'Kabir Malhotra', userId: 'IN2026-1019', college: 'IIT Jodhpur', score: 13_500 },
-  { rank: 20, name: 'Prisha Kapoor', userId: 'IN2026-1020', college: 'NIT Warangal', score: 13_200 }
+  const leaderboardData = [ 
 ];
 
 

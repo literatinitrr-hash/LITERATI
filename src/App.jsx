@@ -72,3 +72,9 @@ function App() {
 }
 
 export default App;
+
+
+
+login variable = GOOGLECLIENT/ID
+
+SECRET_KEY = GOOGLE_CLIENT/SECRET
