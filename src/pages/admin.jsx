@@ -1,4 +1,6 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import axios from "axios";
+
 import JungleHeader from "../components/admin/JungleHeader";
 import ScoreboardCard from "../components/admin/ScoreboardCard";
 import ScoreboardHeader from "../components/admin/ScoreboardHeader";
@@ -11,74 +13,39 @@ import ParticipantModal from "../components/admin/ParticipantModal";
 function Admin() {
   const [search, setSearch] = useState("");
   const [selectedParticipantId, setSelectedParticipantId] = useState(null);
+  const [participants, setParticipants] = useState([]);
 
-  const [participants, setParticipants] = useState([
-    {
-      id: "1",
-      name: "Arjun Kumar",
-      questPoints: {
-        mainQuests: [120, 150, 80],
-        sideQuests: [30, 25, 20, 25],
-      },
-    },
-    {
-      id: "2",
-      name: "Priya Sharma",
-      questPoints: {
-        mainQuests: [100, 120, 90],
-        sideQuests: [20, 15, 20, 15],
-      },
-    },
-    {
-      id: "3",
-      name: "Rohan Patel",
-      questPoints: {
-        mainQuests: [150, 140, 130],
-        sideQuests: [30, 30, 25, 20],
-      },
-    },
-  ]);
+  const fetchParticipants = async () => {
+    try {
+      const API = import.meta.env.VITE_API_URL;
+      const token = localStorage.getItem("token");
 
-  const calculateTotalPoints = (p) =>
-    [...p.questPoints.mainQuests, ...p.questPoints.sideQuests].reduce(
-      (sum, val) => sum + val,
-      0
-    );
+      const res = await axios.get(`${API}/api/admin/users`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-  const updateQuestPoints = (id, type, index, delta) => {
-    setParticipants((prev) =>
-      prev.map((p) => {
-        if (p.id !== id) return p;
-        if (!p.questPoints[type]) return p;
-
-        const updated = [...p.questPoints[type]];
-        updated[index] = Math.max(0, updated[index] + delta);
-
-        return {
-          ...p,
-          questPoints: {
-            ...p.questPoints,
-            [type]: updated,
-          },
-        };
-      })
-    );
+      setParticipants(res.data.users);
+    } catch (err) {
+      console.error("Failed to fetch users:", err);
+    }
   };
+
+  useEffect(() => {
+    fetchParticipants();
+  }, []);
 
   const visibleParticipants = useMemo(() => {
     return participants
       .filter((p) =>
         p.name.toLowerCase().includes(search.toLowerCase())
       )
-      .map((p) => ({
-        ...p,
-        total: calculateTotalPoints(p),
-      }))
-      .sort((a, b) => b.total - a.total);
+      .sort((a, b) => b.totalPoints - a.totalPoints);
   }, [participants, search]);
 
   const selectedParticipant = participants.find(
-    (p) => p.id === selectedParticipantId
+    (p) => p._id === selectedParticipantId
   );
 
   return (
@@ -92,12 +59,12 @@ function Admin() {
         <ParticipantList>
           {visibleParticipants.map((p, index) => (
             <ParticipantRow
-              key={p.id}
+              key={p._id}
               rank={index + 1}
               name={p.name}
-              points={p.total}
+              points={p.totalPoints}
               isTop={index === 0}
-              onView={() => setSelectedParticipantId(p.id)}
+              onView={() => setSelectedParticipantId(p._id)}
             />
           ))}
         </ParticipantList>
@@ -109,7 +76,7 @@ function Admin() {
         <ParticipantModal
           participant={selectedParticipant}
           onClose={() => setSelectedParticipantId(null)}
-          onUpdate={updateQuestPoints}
+          onRefresh={fetchParticipants}
         />
       )}
     </div>
