@@ -7,9 +7,8 @@ import ParticipantList from "../components/admin/ParticipantList";
 import ParticipantRow from "../components/admin/ParticipantRow";
 import FooterHint from "../components/admin/FooterHint";
 import ParticipantModal from "../components/admin/ParticipantModal";
-//import "C:\Users\OMEN\Downloads\New folder (2)\LITERATI\src\components\admin\admin.css";
 
-export default function Admin() {
+function Admin() {
   const [search, setSearch] = useState("");
   const [selectedParticipantId, setSelectedParticipantId] = useState(null);
 
@@ -40,14 +39,12 @@ export default function Admin() {
     },
   ]);
 
-  // 🔢 total calculator (stable)
   const calculateTotalPoints = (p) =>
     [...p.questPoints.mainQuests, ...p.questPoints.sideQuests].reduce(
       (sum, val) => sum + val,
       0
     );
 
-  // 🧠 mutation logic (safe + immutable)
   const updateQuestPoints = (id, type, index, delta) => {
     setParticipants((prev) =>
       prev.map((p) => {
@@ -68,7 +65,6 @@ export default function Admin() {
     );
   };
 
-  // 🧠 derived + sorted view
   const visibleParticipants = useMemo(() => {
     return participants
       .filter((p) =>
@@ -81,7 +77,6 @@ export default function Admin() {
       .sort((a, b) => b.total - a.total);
   }, [participants, search]);
 
-  // 🔗 synced modal participant
   const selectedParticipant = participants.find(
     (p) => p.id === selectedParticipantId
   );
@@ -120,3 +115,5 @@ export default function Admin() {
     </div>
   );
 }
+
+export default Admin;

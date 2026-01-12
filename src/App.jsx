@@ -13,6 +13,7 @@ import Leaderboard from "./components/Profile/Leaderboard";
 import Dashboard from "./pages/Dashboard.jsx";
 import Scoreboard from "./components/Dashboard/Scoreboard";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Admin from "./pages/admin.jsx";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -33,6 +34,7 @@ const AnimatedRoutes = () => {
         </Route>
 
         <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<Admin />} />
       </Routes>
     </AnimatePresence>
   );

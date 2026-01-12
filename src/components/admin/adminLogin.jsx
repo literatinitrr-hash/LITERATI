@@ -2,22 +2,36 @@ import React, { useState } from "react";
 import "./admin.css";
 
 const AdminLogin = () => {
+  const [email, setEmail] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!identifier.trim() || !password.trim()) {
-      setError("Please fill in all fields");
-      return;
-    }
-
-    setError("");
-    console.log({ identifier, password });
-  };
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log("Login button clicked");
+  
+      try {
+        const API = import.meta.env.VITE_API_URL;
+  
+        const res = await axios.post(
+          `${API}/api/admin/adminlogin`,
+          { email, password }
+        );
+  
+        console.log("Backend response:", res.data);
+  
+        localStorage.setItem("token", res.data.token);
+        navigate("/admin/dashboard");
+      } catch (err) {
+        const message =
+          err.response?.data?.message || "Something went wrong";
+  
+        setError(message);
+      }
+  
+    };
 
   return (
     <div className="admin-login-wrapper">
