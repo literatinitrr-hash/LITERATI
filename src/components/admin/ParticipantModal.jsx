@@ -14,7 +14,13 @@ export default function ParticipantModal({ participant, onClose, onRefresh }) {
 
   if (!participant) return null;
 
-  const { _id, name, totalPoints, eventScores } = participant;
+  const {
+    _id,
+    name,
+    totalPoints = 0,
+    eventScores = []
+  } = participant;
+
 
   useEffect(() => {
     const handleKey = (e) => {
