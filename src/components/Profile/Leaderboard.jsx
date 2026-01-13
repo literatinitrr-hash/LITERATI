@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Search, Trophy, Medal, Award } from 'lucide-react';
+import axios from "axios";
 import './Leaderboard.css';
 
 const Leaderboard = () => {

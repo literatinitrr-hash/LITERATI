@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCrown } from "react-icons/fa";
+import axios from "axios";
 import "./Leaderboard.css";
 
 const getRankClass = (rank) => {
@@ -11,31 +12,44 @@ const getRankClass = (rank) => {
 
 function Leaderboard() {
   const [standings, setStandings] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  fetch("http://localhost:5000/api/users/leaderboard", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-  },
-})
+    const API = import.meta.env.VITE_API_URL;
+    const token = localStorage.getItem("token");
 
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        const rankedData = data.leaderboard.map((user, index) => ({
-          id: user._id,
-          rank: index + 1,
-          name: user.name,
-          points: user.totalPoints
-        }));
-        setStandings(rankedData);
+    const fetchLeaderboard = async () => {
+      try {
+        const res = await axios.get(
+          `${API}/api/users/leaderboard`,
+          token
+            ? {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            : {}
+        );
+
+        if (res.data.success) {
+          const rankedData = res.data.leaderboard.map((user, index) => ({
+            id: user._id,
+            rank: index + 1,
+            name: user.name,
+            points: user.totalPoints ?? 0,
+          }));
+
+          setStandings(rankedData);
+        }
+      } catch (err) {
+        console.error("Leaderboard fetch failed");
+      } finally {
+        setLoading(false);
       }
-    })
-    .catch(err => console.error("Leaderboard error:", err));
-}, []);
+    };
 
+    fetchLeaderboard();
+  }, []);
 
   return (
     <div className="leaderboard">
@@ -44,17 +58,23 @@ function Leaderboard() {
         <h1>OVERALL STANDINGS</h1>
       </div>
 
-      {standings.map((item) => (
-        <div key={item.id} className="leaderboard-row">
-          <div className="leaderboard-left">
-            <div className={`rank-circle ${getRankClass(item.rank)}`}>
-              {item.rank}
+      {loading && <p className="leaderboard-loading">Loading...</p>}
+
+      {!loading &&
+        standings.map((item) => (
+          <div key={item.id} className="leaderboard-row">
+            <div className="leaderboard-left">
+              <div className={`rank-circle ${getRankClass(item.rank)}`}>
+                {item.rank}
+              </div>
+              <h2 className="player-name">{item.name}</h2>
             </div>
-            <h2 className="player-name">{item.name}</h2>
+
+            <div className="points">
+              {item.points.toLocaleString()}
+            </div>
           </div>
-          <div className="points">{item.points}</div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }

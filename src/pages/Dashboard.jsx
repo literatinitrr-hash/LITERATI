@@ -1,5 +1,6 @@
 import React from "react";
 import LeaderboardProxy from "./LeaderboardProxy";
+import Leaderboard from "../components/Dashboard/Leaderboard";
 import forest from "../assets/forest.jfif";
 import "../styles/Dashboard.css";
 
@@ -15,7 +16,8 @@ function Dashboard() {
       <div className="dashboard-overlay" />
 
       <div className="dashboard-content">
-        <LeaderboardProxy />
+        {/* <LeaderboardProxy /> */}
+        <Leaderboard />
       </div>
     </div>
   );

@@ -35,6 +35,7 @@ const AnimatedRoutes = () => {
 
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<Admin />} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </AnimatePresence>
   );
