@@ -21,7 +21,7 @@ function Leaderboard() {
     const fetchLeaderboard = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/users/leaderboard`,
+          `${API}/api/user/leaderboard`,
           token
             ? {
                 headers: {
