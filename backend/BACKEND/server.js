@@ -1,11 +1,16 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import dotenv from "dotenv";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const dotenv = require("dotenv");
+
+const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
+const adminRoutes = require("./routes/admin");
 
 dotenv.config();
 
 
+dotenv.config();
 
 const app = express();
 
@@ -13,16 +18,15 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.error('MongoDB Error:', err));
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.error("MongoDB Error:", err));
 
-app.use('/api/auth', import('./routes/auth'));
-app.use('/api/users', import('./routes/user'));   
-app.use('/api/admin', import('./routes/admin'));
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/admin", adminRoutes);
 
-
-app.get('/', (req, res) => {
-  res.json({ msg: 'Competition Backend Running!' });
+app.get("/", (req, res) => {
+  res.json({ msg: "Competition Backend Running!" });
 });
 
 const PORT = process.env.PORT || 5000;

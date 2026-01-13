@@ -17,37 +17,37 @@ function Login() {
   const navigate = useNavigate();
 
 
-  const handleGoogleLogin = async (credentialResponse) => {
-    try {
-      const API = import.meta.env.VITE_API_URL;
+  // const handleGoogleLogin = async (credentialResponse) => {
+  //   try {
+  //     const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-      const decoded = jwtDecode(credentialResponse.credential);
-      const email = decoded.email;
+  //     const decoded = jwtDecode(credentialResponse.credential);
+  //     const email = decoded.email;
 
-      const res = await fetch(`${API}/api/auth/google-login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+  //     const res = await fetch(`${API}/api/auth/google-login`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ email }),
+  //     });
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.msg);
-      }
+  //     if (!res.ok) {
+  //       throw new Error(data.msg);
+  //     }
 
-      // Store token
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+  //     // Store token
+  //     localStorage.setItem("token", data.token);
+  //     localStorage.setItem("user", JSON.stringify(data.user));
 
-      // Navigate to dashboard
-      navigate("/dashboard");
-    } catch (err) {
-      alert(err.message || "Google login failed");
-    }
-  };
+  //     // Navigate to dashboard
+  //     navigate("/dashboard");
+  //   } catch (err) {
+  //     alert(err.message || "Google login failed");
+  //   }
+  // };
 
 
   const handleSubmit = async (e) => {
@@ -55,7 +55,7 @@ function Login() {
     console.log("Login button clicked");
 
     try {
-      const API = import.meta.env.VITE_API_URL;
+      const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
       const res = await axios.post(
         `${API}/api/auth/login`,
@@ -107,11 +107,7 @@ function Login() {
 
         <button type="submit">Login</button>
 
-        <GoogleLogin
-          className="google-button"
-          onSuccess={(handleGoogleLogin)}
-
-          onError={(err) => { console.log("login failed") }} />
+        
 
         <p className="register-text">
           Don’t have an account?{" "}

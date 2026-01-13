@@ -9,11 +9,12 @@ import Login from "./components/Login/Login";
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import ClosedBook from "./components/ClosedBook/ClosedBook";
 import AdminLogin from "./components/admin/adminLogin.jsx";
-import Leaderboard from "./components/Profile/Leaderboard";
+import Leaderboard from "./components/Dashboard/Leaderboard.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Scoreboard from "./components/Dashboard/Scoreboard";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Admin from "./pages/admin.jsx";
+import PublicLeaderboard from "./components/Public-Leaderboard/PublicLeaderboard.jsx";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const AnimatedRoutes = () => {
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
           <Route index element={<Leaderboard />} />
         </Route>
+        <Route path="/public-leaderboard" element={<PublicLeaderboard />} />
 
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<Admin />} />
