@@ -1,0 +1,114 @@
+.faq {
+  padding: 120px 60px;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(15, 30, 20, 0.85) 0%,
+      rgba(10, 15, 13, 0.65) 100%
+    ),
+    url("../../assets/faqsbg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-top: 1px solid rgba(127, 255, 161, 0.1);
+  border-bottom: 1px solid rgba(127, 255, 161, 0.1);
+}
+
+.faq, .faq-title, .faq-question, .faq-answer, .faq-answer-wrapper {
+  font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Stronger override: ensure no other component (eg. Great Vibes) applies cursive here */
+.faq, .faq * {
+  font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+  font-style: normal !important;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 70px;
+  color: #7fffa1;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 30px rgba(127, 255, 161, 0.15);
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.faq-question {
+  width: 100%;
+  background: rgba(127, 255, 161, 0.16);
+  border: 1px solid rgba(127, 255, 161, 0.22);
+  border-radius: 18px;
+  padding: 22px 28px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #7fffa1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.faq-question > span:first-child {
+  font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+  font-style: normal !important;
+}
+
+.faq-question:hover {
+  background: rgba(127, 255, 161, 0.25);
+  transform: translateY(-2px);
+}
+
+.faq-icon {
+  font-size: 1.4rem;
+  color: #7fffa1;
+}
+
+.faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+
+
+.faq-answer-wrapper.open {
+  max-height: 300px;
+}
+
+.faq-answer {
+  background: #ffffff;
+  color: #111;
+  margin-top: -12px; /* layered card effect */
+  padding: 26px 28px;
+  border-radius: 0 0 18px 18px;
+  font-size: 1rem;
+  line-height: 1.7;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .faq {
+    padding: 90px 24px;
+  }
+
+  .faq-title {
+    font-size: 2.4rem;
+    margin-bottom: 50px;
+  }
+
+  .faq-question {
+    font-size: 1.05rem;
+    padding: 20px 22px;
+  }
+}

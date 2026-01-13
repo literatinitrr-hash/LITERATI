@@ -1,0 +1,310 @@
+
+/* .great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.book, .book input, .book form button {
+font-family: "Old Standard TT", cursive;
+  font-weight: 400;
+  font-style: normal;
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+  color: black;
+  background-color: transparent;
+  border-radius:0.25em ;
+  
+  
+  
+}
+
+
+.Form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
+  color: black;
+  font-size: 0.85em;
+}
+
+.Form div{
+  width: 100%;
+
+  
+}
+
+.heading {
+  font-size: 1.4em;
+  font-weight: 600;     
+  text-align: center;
+  position: relative;
+  top: 0;
+  text-decoration: underline;
+}
+
+.grid > div:hover {
+    transform:none;
+    border-color:transparent;
+    box-shadow: none;
+    padding:0px;
+    background: none;
+    border-radius: 0px;
+    border:none;
+    transition:none;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.space-y-\[1\.2em\] > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1.2em * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1.2em * var(--tw-space-y-reverse));
+}
+
+.book-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-img {
+  height: 90%;
+  z-index: 1;
+}
+
+.form {
+  position: absolute;
+  width: 60%;
+  max-width: 800px;
+  z-index: 2;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.page h2 {
+  text-align: center;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.page input {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .book-img {
+    height: 70%;
+  }
+
+  .form {
+    width: 85%;
+  }
+}
+
+
+
+ */
+
+ /* Fonts */
+.book,
+.book input,
+.book button,
+.book label {
+  font-family: "Old Standard TT", serif;
+  color: black;
+  background: transparent;
+}
+
+/* Container */
+.book-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Book image (kept exactly as your original logic) */
+.book-img {
+  position: relative;
+  top:-2%;
+  height: 90%;
+  width: auto;
+  z-index: 1;
+}
+
+/* Form inside book — now aspect-ratio based */
+.form {
+  position: absolute;
+  top: 7%;
+  
+
+  /* Scale relative to book height */
+  height: 70%;
+  aspect-ratio: 491.92 / 375.32;
+
+  max-height: 600px;
+  max-width: 90vw;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Two-page book spread */
+.spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%; /* scales naturally with form size */
+}
+
+
+/* Individual page */
+.page {
+  font-size: clamp(0.75em, 1.2vw, 0.85em);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.heading {
+  font-size: clamp(1.1em, 2vw, 1.4em);
+  text-decoration: underline;
+}
+
+.page input {
+  background: transparent;
+  border: 1px solid black;
+  color: black;
+  border-radius: 0.2em;
+  width: 100%;
+  height: 60%;
+  
+}
+
+.page input::placeholder {
+  color: black;
+  opacity: 0.65;
+}
+
+.field label {
+  display: block;        /* ⬅️ forces label to its own line */
+  margin-bottom: 0.2em;
+}
+
+
+
+
+/* Navigation */
+.register-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5em;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1.1em;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Mobile: stack pages */
+@media (max-width: 768px) {
+  .form {
+    top: 13%;
+    left: 13%;
+    width: 70%;
+    aspect-ratio: 375.32 / 491.92;
+  }
+
+  .spread {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+  .book-img {
+    height: 75%;
+    left: 20vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form {
+    font-size: 1.5em;
+    top: 20%;
+    left: 10%;
+    width: 84%;
+    aspect-ratio: 375.32 / 491.92;
+  }
+  
+
+  .spread {
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+  }
+
+  .book-img {
+    height: 60%;
+    left: 2%;
+    
+  }
+}
+
+

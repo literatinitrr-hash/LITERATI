@@ -5,7 +5,7 @@ const faqData = [
   {
     question: "What could be the size of the team?",
     answer:
-      "We are only looking for groups of 2 to 4 participants this time. Solo participation is not allowed."
+      "The team is of one while registering. In any event if team is reuired, it will be an on spot formation of team"
   },
   {
     question: "What is the participation fee?",
@@ -13,14 +13,14 @@ const faqData = [
       "There is no participation fee. The event is completely free for all selected teams."
   },
   {
-    question: "Who can participate?",
+    question: "Who can participate in MUN?",
     answer:
-      "Students from any college or university are welcome to participate, regardless of their branch or year."
+      "Students from any college, university and school are welcome to participate, regardless of their branch or year."
   },
   {
-    question: "Is prior experience required?",
+    question: "Is prior experience required for MUN?",
     answer:
-      "No prior hackathon experience is required. Beginners are welcome and encouraged to participate."
+      "No prior MUN experience is required. Beginners are welcome and encouraged to participate."
   }
 ];
 

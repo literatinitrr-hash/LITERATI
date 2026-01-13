@@ -1,0 +1,81 @@
+.speakers {
+  padding: 180px 40px;
+  background-image:
+    linear-gradient(180deg, rgba(15, 30, 20, 0.4), rgba(10, 20, 15, 0.6)),
+    url("../../assets/speakersbg.png");
+  background-repeat: no-repeat;
+    padding: 180px 40px;
+  position: relative;
+  text-align: center;
+  background-size: cover;
+  background-position: center top;
+  overflow: hidden;
+  border-top: 1px solid rgba(127, 255, 161, 0.1);
+  border-bottom: 1px solid rgba(127, 255, 161, 0.1);
+}
+
+.speakers h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 60px;
+  color: #7fffa1;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 30px rgba(127, 255, 161, 0.1);
+}
+
+.speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.speaker-card {
+  padding: 40px 30px;
+  background: linear-gradient(135deg, rgba(127, 255, 161, 0.08) 0%, rgba(46, 204, 113, 0.03) 100%);
+  border: 1px solid rgba(127, 255, 161, 0.2);
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.speaker-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #7fffa1, #2ecc71);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.speaker-card:hover::before {
+  transform: scaleX(1);
+}
+
+.speaker-card:hover {
+  transform: translateY(-8px);
+  border-color: #7fffa1;
+  box-shadow: 0 15px 40px rgba(127, 255, 161, 0.15);
+}
+
+.speaker-card h3 {
+  color: #7fffa1;
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.speaker-card p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}

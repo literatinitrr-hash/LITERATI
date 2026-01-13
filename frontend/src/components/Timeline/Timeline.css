@@ -1,0 +1,141 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0a0f0d;
+  color: white;
+}
+
+.timeline {
+  padding: 100px 0;
+  text-align: center;
+  /* Fixed background image logic */
+  background-image: linear-gradient(180deg, rgba(10, 15, 13, 0.8) 0%, rgba(15, 30, 20, 0.9) 100%), 
+                    url("../../assets/timeline.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-top: 1px solid rgba(127, 255, 161, 0.1);
+  border-bottom: 1px solid rgba(127, 255, 161, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline h2 {
+  font-size: 3.5rem;
+  margin-bottom: 50px;
+  color: #7fffa1;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 30px rgba(127, 255, 161, 0.2);
+  font-family: "Times New Roman", Times, serif;
+}
+
+.timeline-wrapper {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  min-height: 500px;
+}
+
+.curve {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 150px; 
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.curve path {
+  fill: none;
+  stroke: rgba(127, 255, 161, 0.3);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke; 
+}
+
+.timeline-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 120px; /* Increased gap for better line alignment */
+  padding: 50px 0;
+}
+
+.milestone {
+  position: relative; /* Essential for the connecting line */
+  width: 40%;
+  background: rgba(17, 17, 17, 0.85);
+  border: 2px solid rgba(127, 255, 161, 0.3);
+  padding: 25px;
+  border-radius: 12px;
+  opacity: 0.1;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-align: left;
+  backdrop-filter: blur(8px);
+}
+
+/* THE CONNECTING LINE */
+.milestone::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 25%; /* Length of the connector */
+  height: 2px;
+  background: rgba(127, 255, 161, 0.3);
+  transition: all 0.8s ease;
+}
+
+.milestone.left::before {
+  right: -25%; /* Extends from the right side of left boxes */
+}
+
+.milestone.right::before {
+  left: -25%; /* Extends from the left side of right boxes */
+}
+
+.milestone.active::before {
+  background: #7fffa1;
+  box-shadow: 0 0 10px rgba(127, 255, 161, 0.5);
+}
+
+.milestone.left {
+  align-self: flex-start;
+}
+
+.milestone.right {
+  align-self: flex-end;
+}
+
+.milestone.active {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: #7fffa1;
+  box-shadow: 0 0 25px rgba(127, 255, 161, 0.2);
+}
+
+.milestone h3 {
+  color: #7fffa1;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.milestone p {
+  color: #999;
+  font-size: 1.1rem;
+  font-family: "Times New Roman", Times, serif;
+}

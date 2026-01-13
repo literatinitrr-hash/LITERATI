@@ -3,28 +3,30 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import "./Book.css";
 import bgGif from "../../assets/1213.gif";
 import bookSvg from "../../assets/slazzer-preview-npzbp.svg";
+import { Meta } from "react-router-dom";
 import axios from "axios";
 
 const spreads = [
   {
     left: [
-      { label: "Email", name: "email", type: "email" },
-      { label: "Password", name: "password", type: "password" },
-      { label: "Name", name: "name", type: "text" },
+      { label: "Email", name: "email", type: "email",placeholder:"Enter Email" },
+      { label: "Password", name: "password", type: "password",placeholder:"Enter password" },
+      { label: "Name", name: "name", type: "text",placeholder:"Enter your name" },
+      { label: "Year / Class", name: "year", type: "text",placeholder:"Enter year / class" }, 
+      { label: "Major", name: "major", type: "text",placeholder:"Enter your major" },
     ],
     right: [
-      { label: "Phone", name: "phone", type: "tel" },
-      { label: "College", name: "college", type: "text" },
+      { label: "Phone", name: "phone", type: "tel",placeholder:"Enter phone number" },
+      { label: "College", name: "college", type: "text",placeholder:"Enter college name" },
     ],
   },
   {
     left: [
-      { label: "Year / Class", name: "year", type: "text" },
-      { label: "Major", name: "major", type: "text" },
+      { label: "City", name: "city", type: "text",placeholder:"Enter your city" },
+      { label: "State", name: "state", type: "text",placeholder:"Enter your state" },
     ],
     right: [
-      { label: "City", name: "city", type: "text" },
-      { label: "State", name: "state", type: "text" },
+      
     ],
   },
 ];
@@ -32,7 +34,18 @@ const spreads = [
 const Book = () => {
   const navigate = useNavigate();
   const [spread, setSpread] = useState(0);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+  email: "",
+  password: "",
+  name: "",
+  phone: "",
+  college: "",
+  year: "",
+  major: "",
+  city: "",
+  state: "",
+});
+
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,29 +53,31 @@ const Book = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  
+console.log("Form Data being sent:", formData);
+try {
+  const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-  try {
-    const response = await axios.post(
-      "http://localhost:5000/api/auth/register",
-      formData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+  const response = await axios.post(
+    `${API}/api/auth/register`,
+    formData,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
-    const data = response.data;
+  const data = response.data;
 
-    console.log("Registration successful:", data);
+  console.log("Registration successful:", data);
 
-    // Store token
-    localStorage.setItem("token", data.token);
+  // Store token
+  localStorage.setItem("token", data.token);
 
-    // Navigate ONLY after success
-    navigate("/login");
-
-  } catch (error) {
+  // Navigate ONLY after success
+  navigate("/");
+} catch (error) {
     // Axios error handling
     const message =
       error.response?.data?.msg || 
@@ -114,7 +129,7 @@ const handleSubmit = async (e) => {
           value={formData[f.name] || ""}
           onChange={handleChange}
           required
-          placeholder={f.label}
+          placeholder={f.placeholder}
         />
       </div>
     ))}
@@ -135,7 +150,7 @@ const handleSubmit = async (e) => {
           value={formData[f.name] || ""}
           onChange={handleChange}
           required
-          placeholder={f.label}
+          placeholder={f.placeholder}
         />
       </div>
     ))}
@@ -143,7 +158,7 @@ const handleSubmit = async (e) => {
 </div>
 
         {/* NAVIGATION */}
-        <div className="nav">
+        <div className="register-nav">
           {spread > 0 && (
             <button
   type="button"
