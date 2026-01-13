@@ -52,30 +52,62 @@ function Leaderboard() {
   }, []);
 
   return (
-    <div className="leaderboard">
-      <div className="leaderboard-header">
-        <FaCrown className="crown-icon" />
-        <h1>OVERALL STANDINGS</h1>
-      </div>
-
-      {loading && <p className="leaderboard-loading">Loading...</p>}
-
-      {!loading &&
-        standings.map((item) => (
-          <div key={item.id} className="leaderboard-row">
-            <div className="leaderboard-left">
-              <div className={`rank-circle ${getRankClass(item.rank)}`}>
-                {item.rank}
-              </div>
-              <h2 className="player-name">{item.name}</h2>
-            </div>
-
-            <div className="points">
-              {item.points.toLocaleString()}
-            </div>
+    <section className="leaderboard-card">
+      <div className="leaderboard-card-inner">
+        {/* Header */}
+        <header className="leaderboard-header">
+          <FaCrown className="crown-icon" />
+          <div className="leaderboard-title-block">
+            <h1 className="leaderboard-title">
+              Overall Standings
+            </h1>
+            <p className="leaderboard-subtitle">
+              Top performers across all events
+            </p>
           </div>
-        ))}
-    </div>
+        </header>
+
+        {/* States */}
+        {loading && (
+          <p className="leaderboard-loading">
+            Loading leaderboard...
+          </p>
+        )}
+
+        {!loading && standings.length === 0 && (
+          <p className="leaderboard-empty">
+            No standings available yet
+          </p>
+        )}
+
+        {/* List */}
+        {!loading && standings.length > 0 && (
+          <div className="leaderboard-list">
+            {standings.map((item) => (
+              <div
+                key={item.id}
+                className={`leaderboard-row ${getRankClass(
+                  item.rank
+                )}`}
+              >
+                <div className="leaderboard-left">
+                  <div className="rank-circle">
+                    {item.rank}
+                  </div>
+                  <span className="player-name">
+                    {item.name}
+                  </span>
+                </div>
+
+                <div className="points">
+                  {item.points.toLocaleString()}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
 
