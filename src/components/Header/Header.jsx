@@ -28,9 +28,9 @@ const Header = () => {
           <Link to="/adminlogin" onClick={() => setMenuOpen(false)}>
           Enter As Admin
           </Link>
-          <Link to="/profile" onClick={() => setMenuOpen(false)}>
+          {/* <Link to="/profile" onClick={() => setMenuOpen(false)}>
           View Profile
-          </Link>
+          </Link> */}
           <a href="#timeline" onClick={() => setMenuOpen(false)}>Timeline</a>
           <a 
           className="register-btn"
