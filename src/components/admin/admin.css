@@ -108,6 +108,7 @@ body {
   color: var(--text-main);
   width: 100%;
   font-size: 1rem;
+  line-height: 1.2;
 }
 
 .search-icon {
