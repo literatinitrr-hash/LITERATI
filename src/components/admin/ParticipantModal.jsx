@@ -106,7 +106,7 @@ export default function ParticipantModal({ participant, onClose, onRefresh }) {
 
           <input
             type="text"
-            placeholder="Event Code (e.g. MAIN1, SIDE2)"
+            placeholder="Event Name"
             value={eventCode}
             onChange={(e) => setEventCode(e.target.value)}
           />
@@ -120,7 +120,7 @@ export default function ParticipantModal({ participant, onClose, onRefresh }) {
 
           <input
             type="text"
-            placeholder="Reason (optional)"
+            placeholder="Reason (Mandatory)"
             value={reason}
             onChange={(e) => setReason(e.target.value)}
           />
