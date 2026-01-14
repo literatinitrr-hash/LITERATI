@@ -10,6 +10,7 @@ import Gallery from "../components/Gallery/Gallery";
 import Timeline from "../components/Timeline/Timeline";
 import Stats from "../components/Stats/Stats";
 import FAQ from "../components/FAQ/FAQ";
+import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 import "../../src/index.css"
 import "../../src/App.css"
@@ -37,6 +38,7 @@ const Landing = ({ onRegisterClick }) => {
       <AnimatedSection><Gallery /></AnimatedSection>
       <AnimatedSection><Stats /></AnimatedSection>
       <AnimatedSection><FAQ /></AnimatedSection>
+      <AnimatedSection><Contact /></AnimatedSection>
 
       <Footer />
     </div>

@@ -37,7 +37,7 @@ const Landing = ({ onRegisterClick }) => {
       <AnimatedSection><Gallery /></AnimatedSection>
       <AnimatedSection><Stats /></AnimatedSection>
       <AnimatedSection><FAQ /></AnimatedSection>
-
+      
       <Footer />
     </div>
   );
