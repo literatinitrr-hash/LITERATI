@@ -23,13 +23,13 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    const YOUR_PUBLIC_KEY = "AZ_Lf9txAFb37EdBN";
-    const YOUR_SERVICE_ID = "service_r1lkajw";
-    const YOUR_TEMPLATE_ID = "template_g50ixpa";
+    const PUBLIC_KEY = "AZ_Lf9txAFb37EdBN";
+    const SERVICE_ID = "service_r1lkajw";
+    const TEMPLATE_ID = "template_g50ixpa";
 
     emailjs
-      .sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, form.current, {
-        publicKey: YOUR_PUBLIC_KEY,
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+        publicKey: PUBLIC_KEY,
       })
       .then(
         () => {
