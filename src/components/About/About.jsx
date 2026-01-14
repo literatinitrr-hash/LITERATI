@@ -51,11 +51,11 @@ const About = () => {
           </div>
           <div className="stat">
             <div>15+</div>
-            <span>Workshops</span>
+            <span>Events</span>
           </div>
           <div className="stat">
-            <div>2000+</div>
-            <span>Attendees</span>
+            <div>100+</div>
+            <span>Participants</span>
           </div>
         </div>
 
