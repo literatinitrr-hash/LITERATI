@@ -15,6 +15,7 @@ import Scoreboard from "./components/Dashboard/Scoreboard";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import CursorSparkles from "./components/CursorSparkles/CursorSparkles.jsx";
 import publicLB from "./pages/publicLB.jsx";
+import PublicLB from "./components/Dashboard/PublicLB";
 import PublicLeaderboard from "./components/Dashboard/PublicLB.jsx";
 import Admin from "./pages/admin.jsx";
 
@@ -32,7 +33,7 @@ const AnimatedRoutes = () => {
           <Route path="book" element={<Book />} />
         </Route>
 
-        <Route path="/public_leaderboard" element={<publicLB/>}/>
+        <Route path="/public_leaderboard" element={<PublicLB/>}/>
 
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
           <Route index element={<Leaderboard />} />
