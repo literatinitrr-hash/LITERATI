@@ -18,7 +18,6 @@ function Dashboard() {
 
       <div className="dashboard-content">
         {/* <LeaderboardProxy /> */}
-        {/* <Header onRegisterClick={() => navigate("/register")} /> */}
         <Profile />
         <Leaderboard />
       </div>
