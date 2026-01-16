@@ -10,6 +10,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -48,6 +49,28 @@ const Profile = () => {
   if (!user) {
     return <div className="profile-error">No user data</div>;
   }
+
+  const availableEvents = [
+    {
+      id: 1,
+      title: "Knowledge Trivia",
+      description:
+        "A fast-paced quiz testing literary awareness, pop culture, and quick thinking.",
+    },
+    {
+      id: 2,
+      title: "Wit & Expression – The Pensieve Pitch",
+      description:
+        "Present your ideas with clarity, confidence, and impact in a speech-based round.",
+    },
+    {
+      id: 3,
+      title: "Creativity – Once Upon a Time",
+      description:
+        "Craft an original story inspired by your favorite novel in your own unique style.",
+    },
+  ];
+
 
   return (
     <div className="app-container">
@@ -90,8 +113,40 @@ const Profile = () => {
               </div>
             )}
           </section>
+          <h3 className="apply-title">Apply to Events</h3>
+
+          <div className="apply-grid">
+            {availableEvents.map((event) => (
+              <div
+                key={event.id}
+                className="apply-card"
+                onClick={() => setSelectedEvent(event)}
+              >
+                {event.title}
+              </div>
+            ))}
+          </div>
+
         </div>
       </main>
+      {selectedEvent && (
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedEvent(null)}
+        >
+          <div
+            className="modal-box"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2>{selectedEvent.title}</h2>
+            <p>{selectedEvent.description}</p>
+
+            <button className="register-btn">
+              Click here to register in this
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
