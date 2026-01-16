@@ -292,6 +292,7 @@ body {
   border-radius: 12px;
   border: none;
   cursor: pointer;
+  justify-content: center;
 
   background: linear-gradient(135deg, #ff4d4d, #ff1f1f);
   color: #ffffff;
