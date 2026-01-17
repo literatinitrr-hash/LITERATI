@@ -6,6 +6,7 @@ import About from "../components/About/About";
 import Events from "../components/Events/Events";
 import Speakers from "../components/Speakers/Speakers";
 import Sponsors from "../components/Sponsors/Sponsors";
+import Team from "../components/Team/team";
 import Gallery from "../components/Gallery/Gallery";
 import Timeline from "../components/Timeline/Timeline";
 import Stats from "../components/Stats/Stats";
@@ -36,6 +37,7 @@ const Landing = ({ onRegisterClick }) => {
       <AnimatedSection><Timeline /></AnimatedSection>
       <AnimatedSection><Sponsors /></AnimatedSection>
       <AnimatedSection><Gallery /></AnimatedSection>
+      <AnimatedSection><Team /></AnimatedSection>
       <AnimatedSection><FAQ /></AnimatedSection>
       <AnimatedSection><Contact /></AnimatedSection>
 
