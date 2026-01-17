@@ -1,9 +1,21 @@
 import React from "react";
 import "./Stats.css";
+import stats from "../../assets/stats.mp4";
 
 const Stats = () => {
   return (
     <section id="stats" className="stats_new">
+      <video
+        className="stats-bg-video"
+        src={stats}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      <div className="stats-overlay"></div>
+
       <h2>Stats</h2>
       <div className="grid">
         <div><h3>50+</h3><p>Authors</p></div>
