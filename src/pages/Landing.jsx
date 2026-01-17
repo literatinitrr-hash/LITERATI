@@ -36,7 +36,6 @@ const Landing = ({ onRegisterClick }) => {
       <AnimatedSection><Timeline /></AnimatedSection>
       <AnimatedSection><Sponsors /></AnimatedSection>
       <AnimatedSection><Gallery /></AnimatedSection>
-      <AnimatedSection><Stats /></AnimatedSection>
       <AnimatedSection><FAQ /></AnimatedSection>
       <AnimatedSection><Contact /></AnimatedSection>
 

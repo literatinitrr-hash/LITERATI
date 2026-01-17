@@ -5,12 +5,17 @@ const faqData = [
   {
     question: "What could be the size of the team?",
     answer:
-      "The team is of one while registering. In any event if team is reuired, it will be an on spot formation of team"
+      "Individual participation only."
   },
   {
     question: "What is the participation fee?",
     answer:
       "There is no participation fee. The event is completely free for all selected teams."
+  },
+  {
+    question: "Where can we track our points?",
+    answer:
+      "Participants can track their points through leaderboards in their profile with points for every event."
   },
   {
     question: "Who can participate in MUN?",

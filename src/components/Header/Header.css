@@ -108,6 +108,7 @@
 }
 
 .modal-content {
+  margin-top: 15vh;
   background: linear-gradient(180deg, rgba(44, 67, 55, 0.75) 0%, rgba(34, 59, 46, 0.65) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -116,7 +117,7 @@
   border-radius: 16px;
   width: 100%;
   max-width: 1200px;
-  max-height: 85vh;
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
   position: relative;

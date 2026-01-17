@@ -1,11 +1,25 @@
 import React from "react";
 import "./About.css";
+import waterfallVideo from "../../assets/waterfallAboutvideo.mp4";
+
 import { Lightbulb, Pencil, Users } from "lucide-react"
 
 const About = () => {
   return (
     <section id="about" className="about">
+
+      <video
+        className="about-bg-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src={waterfallVideo} type="video/mp4" />
+      </video>
+
       <div className="about-content">
+
 
         <h2>About LitFest</h2>
         <p className="tagline">
@@ -19,30 +33,30 @@ const About = () => {
         </p>
 
         <div className="features">
-  <div className="feature-card">
-    <div className="icon">
-      <Lightbulb size={40} strokeWidth={1.7} />
-    </div>
-    <h3>Inspire</h3>
-    <p>Workshops, talks, and readings that ignite fresh ideas.</p>
-  </div>
+          <div className="feature-card">
+            <div className="icon">
+              <Lightbulb size={40} strokeWidth={1.7} />
+            </div>
+            <h3>Inspire</h3>
+            <p>Workshops, talks, and readings that ignite fresh ideas.</p>
+          </div>
 
-  <div className="feature-card">
-    <div className="icon">
-      <Pencil size={40} strokeWidth={1.7} />
-    </div>
-    <h3>Create</h3>
-    <p>Hands-on sessions, writing jams, and collaborative spaces.</p>
-  </div>
+          <div className="feature-card">
+            <div className="icon">
+              <Pencil size={40} strokeWidth={1.7} />
+            </div>
+            <h3>Create</h3>
+            <p>Hands-on sessions, writing jams, and collaborative spaces.</p>
+          </div>
 
-  <div className="feature-card">
-    <div className="icon">
-      <Users size={40} strokeWidth={1.7} />
-    </div>
-    <h3>Connect</h3>
-    <p>Meet people who share curiosity and passion for stories.</p>
-  </div>
-</div>
+          <div className="feature-card">
+            <div className="icon">
+              <Users size={40} strokeWidth={1.7} />
+            </div>
+            <h3>Connect</h3>
+            <p>Meet people who share curiosity and passion for stories.</p>
+          </div>
+        </div>
 
         <div className="stats">
           <div className="stat">

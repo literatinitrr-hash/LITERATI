@@ -87,14 +87,16 @@
 }
 
 .faq-answer {
-  background: #ffffff;
-  color: #111;
-  margin-top: -12px; /* layered card effect */
+  background: rgba(127, 255, 161, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(127, 255, 161, 0.22);
+  color: #9add95;
+  border-radius: 18px; 
   padding: 26px 28px;
-  border-radius: 0 0 18px 18px;
   font-size: 1rem;
   line-height: 1.7;
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {

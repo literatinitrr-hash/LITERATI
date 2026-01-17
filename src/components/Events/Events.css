@@ -129,19 +129,23 @@
   max-width: 240px;
 }
 
-.fun-quests-container {
+.quests-container {
   display: flex;
   justify-content: center;
+  gap: 30px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
-.fun-quest-tab {
+.fun-quest-tab,
+.side-quest-tab {
   cursor: pointer;
   border-color: rgba(127, 255, 161, 0.5);
   background: rgba(6, 12, 9, 0.6);
 }
 
-.fun-quest-tab:hover {
+.fun-quest-tab:hover,
+.side-quest-tab:hover {
   background: rgba(127, 255, 161, 0.1);
 }
 

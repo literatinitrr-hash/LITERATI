@@ -3,14 +3,24 @@
   position: relative;
   text-align: center;
 
-  background-image:
+  /* background-image:
     linear-gradient(180deg, rgba(5, 10, 8, 0.55), rgba(5, 15, 10, 0.85)),
     url("../../assets/waterfall.png");
 
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow: hidden; */
+  .about-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: saturate(1.1) contrast(1.05);
+  }
+
 }
 
 .about::before {
@@ -36,6 +46,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
