@@ -2,7 +2,7 @@
   padding: 180px 40px;
   position: relative;
   text-align: center;
-  background-image:
+ /* background-image:
     linear-gradient(180deg, rgba(15, 30, 20, 0.4), rgba(10, 20, 15, 0.6)),
     url("../../assets/sponsorsbg.png");
 
@@ -11,7 +11,51 @@
   background-repeat: no-repeat;
   overflow: hidden;
   border-top: 1px solid rgba(127, 255, 161, 0.1);
-  border-bottom: 1px solid rgba(127, 255, 161, 0.1);
+  border-bottom: 1px solid rgba(127, 255, 161, 0.1);*/
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+ .sponsors-bg-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  z-index: 0;
+  pointer-events: none;
+
+ 
+  }
+
+  .sponsors-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 12, 9, 0.75),
+    rgba(6, 12, 9, 0.85)
+  );
+
+  z-index: 1;
+}
+.sponsors-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 1200px;
+  margin : 0 auto;
+  padding: 0 20px;
 }
 
 .sponsors h2 {
@@ -28,3 +72,4 @@
   font-size: 1.1rem;
   margin: 0;
 }
+
