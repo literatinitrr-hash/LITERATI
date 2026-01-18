@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion"
 import { Lightbulb, Pencil, Users } from "lucide-react"
 import { div } from 'framer-motion/client';
+import stats from "../../assets/stats.mp4";
 
 const Contact = () => {
   const form = useRef();
@@ -45,6 +46,16 @@ const Contact = () => {
 
   return (
     <section id='contact' className='contact'>
+            <video
+              className="contact-bg-video"
+              src={stats}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <div className="contact-overlay"></div>
+             <div className="contact-content">
         <div className='contact-content'>
           {isSuccess && (
             <div className="success-overlay" onClick={() => setIsSuccess(false)}>
@@ -76,7 +87,7 @@ const Contact = () => {
                 <button type='submit' className='submit-btn'>Submit</button>
               </form>
         </div>
-
+          </div>
     </section>
   );
 };
