@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import "./FAQ.css";
+import faqsbg from "../../assets/faqsbg.mp4";
 
 const faqData = [
   {
     question: "What could be the size of the team?",
     answer:
-      "Individual participation only."
+      "The team is of one while registering. In any event if team is reuired, it will be an on spot formation of team"
   },
   {
     question: "What is the participation fee?",
     answer:
       "There is no participation fee. The event is completely free for all selected teams."
-  },
-  {
-    question: "Where can we track our points?",
-    answer:
-      "Participants can track their points through leaderboards in their profile with points for every event."
   },
   {
     question: "Who can participate in MUN?",
@@ -38,6 +34,19 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="faq">
+        <video
+          className="faq-bg-video"
+          src={faqsbg}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        />
+      
+        <div className="faq-overlay"></div>
+         <div className="faq-content">
+
       <h2 className="faq-title">FAQ&apos;s</h2>
 
       <div className="faq-container">
@@ -64,6 +73,7 @@ const FAQ = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );
