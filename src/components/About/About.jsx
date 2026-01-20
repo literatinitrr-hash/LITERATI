@@ -68,7 +68,7 @@ const About = () => {
             <span>Events</span>
           </div>
           <div className="stat">
-            <div>100+</div>
+            <div>2000+</div>
             <span>Participants</span>
           </div>
         </div>
