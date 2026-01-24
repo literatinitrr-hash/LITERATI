@@ -104,7 +104,8 @@
   border-radius: 6px;
   border: none;
   outline: none;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 input::placeholder {
