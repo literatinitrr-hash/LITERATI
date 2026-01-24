@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import axios from "axios";
 
+const API_BASE = "https://lit-backend-22m4.onrender.com";
+
 import ProfileHeader from "../components/Profile/ProfileHeader";
 import "../styles/Profile.css";
 
@@ -51,7 +53,7 @@ const Profile = () => {
     const fetchEvents = async () => {
       try {
         const API = import.meta.env.VITE_API_URL;
-        const res = await axios.get(`${API}/api/events`);
+        const res = await axios.get(`${API_BASE}/api/events`);
 
         if (res.data.success) {
           setAvailableEvents(res.data.events);
@@ -73,7 +75,7 @@ const Profile = () => {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        `${API}/api/events/${selectedEvent.code}/interest`,
+        `${API_BASE}/api/events/${selectedEvent.code}/interest`,
         {},
         {
           headers: {
