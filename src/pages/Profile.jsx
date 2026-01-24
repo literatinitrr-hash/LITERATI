@@ -10,7 +10,12 @@ const Profile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const [availableEvents, setAvailableEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [registering, setRegistering] = useState(false);
+  const [showThanks, setShowThanks] = useState(false);
+
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -42,6 +47,54 @@ const Profile = () => {
     fetchProfile();
   }, [navigate]);
 
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const API = import.meta.env.VITE_API_URL;
+        const res = await axios.get(`${API}/api/events`);
+
+        if (res.data.success) {
+          setAvailableEvents(res.data.events);
+        }
+      } catch (err) {
+        console.error("Failed to fetch events", err);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  const registerInterest = async () => {
+    if (!selectedEvent) return;
+
+    try {
+      setRegistering(true);
+      const API = import.meta.env.VITE_API_URL;
+      const token = localStorage.getItem("token");
+
+      await axios.post(
+        `${API}/api/events/${selectedEvent.code}/interest`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setSelectedEvent(null);
+      setShowThanks(true);
+    } catch (err) {
+      alert(
+        err.response?.data?.message ||
+        "Failed to register interest"
+      );
+    } finally {
+      setRegistering(false);
+    }
+  };
+
+
   if (loading) {
     return <div className="profile-loading">Loading profile...</div>;
   }
@@ -49,28 +102,6 @@ const Profile = () => {
   if (!user) {
     return <div className="profile-error">No user data</div>;
   }
-
-  const availableEvents = [
-    {
-      id: 1,
-      title: "Knowledge Trivia",
-      description:
-        "A fast-paced quiz testing literary awareness, pop culture, and quick thinking.",
-    },
-    {
-      id: 2,
-      title: "Wit & Expression – The Pensieve Pitch",
-      description:
-        "Present your ideas with clarity, confidence, and impact in a speech-based round.",
-    },
-    {
-      id: 3,
-      title: "Creativity – Once Upon a Time",
-      description:
-        "Craft an original story inspired by your favorite novel in your own unique style.",
-    },
-  ];
-
 
   return (
     <div className="app-container">
@@ -113,22 +144,24 @@ const Profile = () => {
               </div>
             )}
           </section>
+
           <h3 className="apply-title">Apply to Events</h3>
 
           <div className="apply-grid">
             {availableEvents.map((event) => (
               <div
-                key={event.id}
+                key={event.code}
                 className="apply-card"
                 onClick={() => setSelectedEvent(event)}
               >
-                {event.title}
+                <h4>{event.name}</h4>
+                <span className="event-code">{event.code}</span>
               </div>
             ))}
           </div>
-
         </div>
       </main>
+
       {selectedEvent && (
         <div
           className="modal-overlay"
@@ -138,15 +171,43 @@ const Profile = () => {
             className="modal-box"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2>{selectedEvent.title}</h2>
-            <p>{selectedEvent.description}</p>
+            <h2>{selectedEvent.name}</h2>
 
-            <button className="register-btn-2">
-              Click here to register in this
+            <button
+              className="register-btn-2"
+              onClick={registerInterest}
+              disabled={registering}
+            >
+              {registering ? "Registering..." : "Click here to register"}
             </button>
           </div>
         </div>
       )}
+      {showThanks && (
+        <div
+          className="modal-overlay"
+          onClick={() => setShowThanks(false)}
+        >
+          <div
+            className="modal-box"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2>🎉 Registration Successful</h2>
+            <p>
+              Thanks for registering!
+              You’ll be contacted with further details soon.
+            </p>
+
+            <button
+              className="register-btn-2"
+              onClick={() => setShowThanks(false)}
+            >
+              Awesome!
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
