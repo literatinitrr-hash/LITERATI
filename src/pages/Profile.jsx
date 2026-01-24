@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import axios from "axios";
 
-const API_BASE = "https://lit-backend-22m4.onrender.com";
 
 import ProfileHeader from "../components/Profile/ProfileHeader";
 import "../styles/Profile.css";
 
 const Profile = () => {
+  const API = import.meta.env.VITE_API_URL;
+
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -50,21 +51,25 @@ const Profile = () => {
   }, [navigate]);
 
   useEffect(() => {
-    const fetchEvents = async () => {
+    const fetchEvents = async (retry = false) => {
       try {
-        const API = import.meta.env.VITE_API_URL;
-        const res = await axios.get(`${API_BASE}/api/events`);
+        const res = await axios.get(`${API}/api/events`);
 
         if (res.data.success) {
           setAvailableEvents(res.data.events);
         }
       } catch (err) {
-        console.error("Failed to fetch events", err);
+        if (!retry) {
+          setTimeout(() => fetchEvents(true), 1000);
+        } else {
+          console.error("Failed to fetch events after retry", err);
+        }
       }
     };
 
     fetchEvents();
   }, []);
+
 
   const registerInterest = async () => {
     if (!selectedEvent) return;
@@ -75,7 +80,7 @@ const Profile = () => {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        `${API_BASE}/api/events/${selectedEvent.code}/interest`,
+        `${API}/api/events/${selectedEvent.code}/interest`,
         {},
         {
           headers: {
