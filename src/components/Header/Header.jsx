@@ -100,35 +100,35 @@ const Header = () => {
                   <table className="events-table">
                     <thead>
                       <tr>
-                        <th>Round</th>
+                        <th>Quests</th>
                         <th>Event Name</th>
                         <th>Description</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Round 1</td>
+                        <td>Main Quest 1</td>
                         <td><strong>Poetry Slam</strong></td>
                         <td>
                         </td>
                       </tr>
 
                       <tr>
-                        <td>Round 2</td>
+                        <td>Main Quest 2</td>
                         <td><strong>Storyforge Championship</strong></td>
                         <td>
                         </td>
                       </tr>
 
                       <tr>
-                        <td>Round 3</td>
+                        <td>Main Quest 3</td>
                         <td><strong>Tube Trolls 5.0</strong></td>
                         <td>
                         </td>
                       </tr>
 
                       <tr>
-                        <td>Final</td>
+                        <td>Grand Final</td>
                         <td><strong>Air-Crash</strong></td>
                         <td>
                           <p>Welcome to the final and most intense challenge of the Triwizard journey. Air-Crash is where the jungle witnesses the ultimate test of intellect and expression. In this round, the top scorers transform into iconic literary characters trapped aboard a failing flight, where only a limited few can be saved.</p>
