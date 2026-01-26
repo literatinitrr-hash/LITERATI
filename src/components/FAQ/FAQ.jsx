@@ -6,7 +6,7 @@ const faqData = [
   {
     question: "What could be the size of the team?",
     answer:
-      "The team is of one while registering. In any event if team is reuired, it will be an on spot formation of team"
+      "Individual participation only."
   },
   {
     question: "What is the participation fee?",
@@ -22,6 +22,11 @@ const faqData = [
     question: "Is prior experience required for MUN?",
     answer:
       "No prior MUN experience is required. Beginners are welcome and encouraged to participate."
+  },
+  {
+    question: "Where can we track our points?",
+    answer:
+      "Participants can track their points through leaderboards in their profile with points for every event."
   }
 ];
 
