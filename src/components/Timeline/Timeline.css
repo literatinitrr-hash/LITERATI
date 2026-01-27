@@ -173,3 +173,23 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
+@media (max-width: 768px) {
+  .milestone h3 {
+    font-size: 1.15rem;      
+    letter-spacing: 0.5px;  
+  }
+
+  .milestone p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+}
+@media (max-width: 480px) {
+  .timeline-wrapper {
+    width: 90%;
+  }
+
+  .milestone {
+    width: 40%;
+  }
+}
