@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import "./team.css";
 
+const images = import.meta.glob("../../assets/images/*.{jpg,jpeg,png,webp}", { 
+  eager: true, 
+  import: "default" 
+});
+
+const resolveImage = (filename) => {
+  const path = `../../assets/images/${filename}`;
+  return images[path] || null;
+};
+
 const teamData = [
   {
     id: 1,
@@ -21,42 +31,42 @@ const teamData = [
     name: "Atulya Jaiswal",
     role: "Executive",
     year: "2nd Year",
-    image: ""
+    image: "Atulya.jpg"
   },
   {
     id: 4,
     name: "Shourya Veer Singh",
     role: "Core Coordinator",
     year: "2nd Year",
-    image: ""
+    image: "Shourya.jpg"
   },
   {
     id: 5,
     name: "Naman Rangari",
     role: "Executive",
     year: "2nd Year",
-    image: ""
+    image: "Naman.jpg"
   },
   {
     id: 6,
     name: "Vaibhavi Mishra",
     role: "CC Web Dev",
     year: "2nd Year",
-    image: ""
+    image: "Vaibhavi.jpg"
   },
   {
     id: 7,
     name: "Gourav Mishra",
     role: "Executive",
     year: "2nd Year",
-    image: ""
+    image: "Gourav.jpg"
   },
   {
     id: 8,
     name: "Ashwast Gupta",
     role: "Member",
     year: "1st Year",
-    image: ""
+    image: "Ashwast.jpg"
   },
   {
     id: 9,
@@ -102,7 +112,11 @@ const Team = () => {
           {filteredData.map((member) => (
             <div key={member.id} className="team-card">
               <div className="img-wrapper">
-                <img src={member.image} alt={member.name} />
+                {member.image ? (
+                  <img src={resolveImage(member.image)} alt={member.name} />
+                ) : (
+                  <div className="no-image">No Image</div>
+                )}
               </div>
               <div className="card-overlay">
                 <h3>{member.name}</h3>

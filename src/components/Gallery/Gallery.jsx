@@ -7,7 +7,10 @@ const photos = import.meta.glob("../../assets/images/*.{jpg,jpeg,png,webp}", {
   import: "default" 
 });
 
-const resolveImage = (filename) => photos[`../../assets/images/${filename}`];
+const resolveImage = (filename) => {
+  const path = `../../assets/images/${filename}`;
+  return photos[path] || null;
+};
 
 console.log(Object.keys(photos));
 
