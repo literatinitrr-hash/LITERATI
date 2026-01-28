@@ -10,6 +10,7 @@ const Contact = () => {
   const form = useRef();
   const [isSuccess, setIsSuccess] = useState(false)
   const [emailError, setEmailError] = useState("")
+  const [messageError, setMessageError] = useState("")
 
   const TickAnimation = () => (
   <motion.svg
@@ -35,6 +36,13 @@ const Contact = () => {
         return;
       }
       setEmailError("");
+
+    const message = form.current.message.value;
+      if(message.trim().length < 20){
+        setMessageError("Message should be atleast 20 characters long")
+        return;
+      }
+      setMessageError("");
 
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
@@ -100,6 +108,7 @@ const Contact = () => {
           className="input-message"
           required
         />
+        {messageError && <p className="error-text">{messageError}</p>}
       </div>
 
       <button type="submit" className="submit-btn">
