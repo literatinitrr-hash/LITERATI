@@ -22,16 +22,9 @@ const teamData = [
   {
     id: 2,
     name: "Abhinav Pandey",
-    role: "Core Coordinator PR",
+    role: "Core Coordinator",
     year: "3rd Year",
     image: ""
-  },
-  {
-    id: 3,
-    name: "Atulya Jaiswal",
-    role: "Executive",
-    year: "2nd Year",
-    image: "Atulya.jpg"
   },
   {
     id: 4,
@@ -41,18 +34,25 @@ const teamData = [
     image: "Shourya.jpg"
   },
   {
+    id: 6,
+    name: "Vaibhavi Mishra",
+    role: "Core Coordinator",
+    year: "2nd Year",
+    image: "Vaibhavi.jpg"
+  },
+  {
+    id: 3,
+    name: "Atulya Jaiswal",
+    role: "Executive",
+    year: "2nd Year",
+    image: "Atulya.jpg"
+  },
+  {
     id: 5,
     name: "Naman Rangari",
     role: "Executive",
     year: "2nd Year",
     image: "Naman.jpg"
-  },
-  {
-    id: 6,
-    name: "Vaibhavi Mishra",
-    role: "CC Web Dev",
-    year: "2nd Year",
-    image: "Vaibhavi.jpg"
   },
   {
     id: 7,
