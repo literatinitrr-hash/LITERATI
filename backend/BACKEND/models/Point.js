@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// to remove the ESE
 
 const pointSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
@@ -8,6 +7,5 @@ const pointSchema = new mongoose.Schema({
   givenBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, 
   createdAt: { type: Date, default: Date.now }
 });
-
 
 module.exports = mongoose.model('Point', pointSchema);

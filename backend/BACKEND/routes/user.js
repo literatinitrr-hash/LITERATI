@@ -7,6 +7,7 @@ router.get('/leaderboard', async (req, res) => {
   const leaderboard = await User.find({ role: "user"})
   .select('_id name totalPoints')   
   .sort({ totalPoints: -1 })
+  .limit(5);
 
   res.json({ success: true, leaderboard });
 });

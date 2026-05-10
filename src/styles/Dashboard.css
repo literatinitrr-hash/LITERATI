@@ -31,29 +31,19 @@
 }
 
 @media (min-width: 769px) {
-  .dashboard {
-    height: 100vh;
-    overflow: hidden;
-  }
-
   .dashboard-content {
     flex-direction: row;
     justify-content: center;
-    align-items: stretch;
-    height: 100vh;
-    padding: 2rem;
-    box-sizing: border-box;
-    overflow: hidden;
+    align-items: center;
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .dashboard-content {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    height: auto;
-    overflow: visible;
   }
 
   .dashboard-content > * {

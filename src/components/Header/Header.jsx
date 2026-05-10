@@ -38,11 +38,14 @@ const Header = () => {
           <a href="#timeline" onClick={() => setMenuOpen(false)}>Timeline</a>
           <a href="#sponsors" onClick={() => setMenuOpen(false)}>Our Sponsors</a>
           <a href="#gallery" onClick={() => setMenuOpen(false)}>Our Team</a>
+          <Link to="/halloffame" onClick={() => setMenuOpen(false)}>
+            Hall Of Fame
+          </Link>
           <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
           <Link to="/adminlogin" onClick={() => setMenuOpen(false)}>
-          Enter As Admin
+            Enter As Admin
           </Link>
           <a 
           className="register-btn"

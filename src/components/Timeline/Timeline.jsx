@@ -78,16 +78,15 @@ const Timeline = () => {
             <div
               key={index}
               ref={(el) => (itemsRef.current[index] = el)}
-              className={`milestone ${index % 2 === 0 ? "left" : "right"}`}
-            >
+              className={`milestone ${index % 2 === 0 ? "left" : "right"}`}>
                <h3>{item.event}</h3>
                <p className="venue"><h4>{item.venue}</h4></p>
-               <p className="date">{item.date}</p>
+  <p className="date">{item.date}</p>
 
-      {item.time && (
-               <p className="time">{item.time}</p>
-            )}
-          </div>
+  {item.time && (
+    <p className="time">{item.time}</p>
+  )}
+</div>
           ))}
         </div>
       </div>

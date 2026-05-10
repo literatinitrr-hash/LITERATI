@@ -1,7 +1,11 @@
 import React from "react";
 import "./Speakers.css";
 import speakers from "../../assets/speakers.mp4";
+<<<<<<< HEAD
+import shoeb from "../../assets/images/Dr. Shoeb Khan.jpg";
+=======
 import shoeb from "../../assets/images/Shoeb.jpeg";
+>>>>>>> upstream/main
 
 const list = [
   {

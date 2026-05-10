@@ -19,6 +19,7 @@ import publicLB from "./pages/publicLB.jsx";
 import PublicLB from "./components/Dashboard/PublicLB";
 import PublicLeaderboard from "./components/Dashboard/PublicLB.jsx";
 import Admin from "./pages/admin.jsx";
+import HallOfFame from "./pages/HallOfFame.jsx";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -27,7 +28,7 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Landing />} />
-
+        <Route path="/halloffame" element={<HallOfFame />} />
         <Route path="/register" element={<Register />}>
           <Route index element={<ClosedBook />} />
           <Route path="login" element={<Login />} />

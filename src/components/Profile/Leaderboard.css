@@ -12,7 +12,6 @@
   position: relative;
   margin: 1.5rem 0;
 }
- 
 .search-icon {
   position: absolute;
   left: 1rem;
@@ -354,34 +353,5 @@
 
   .sticky-college {
     display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .leaderboard {
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-    overflow: visible;
-  }
-
-  .leaderboard-table-container {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-  }
-
-  .section-title,
-  .search-container,
-  .podium {
-    flex-shrink: 0;
-  }
-
-  .sticky-current-user {
-    flex-shrink: 0;
-    margin-top: auto;
-    position: sticky;
-    bottom: 0;
-    z-index: 20;
   }
 }

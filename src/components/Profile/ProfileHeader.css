@@ -202,9 +202,12 @@
     font-size: 2.8rem;
   }
 }
+<<<<<<< HEAD
+=======
 @media (min-width: 769px) {
   .profile-header {
     flex-shrink: 0;
     margin-bottom: 1.5rem;
   }
 }
+>>>>>>> upstream/main
