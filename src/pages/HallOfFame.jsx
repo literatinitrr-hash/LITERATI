@@ -15,7 +15,7 @@ import "../components/HallOfFame/HallOfFame.css";
 import heroBg from "../assets/literatiBg.png";
 
 const images = import.meta.glob(
-  "../assets/images/seniors/*.{jpg,jpeg,png,webp}",
+  "../assets/images/*.{jpg,jpeg,png,webp}",
   {
     eager: true,
     import: "default"
@@ -23,65 +23,120 @@ const images = import.meta.glob(
 );
 
 const resolveImage = (filename) => {
-  const key = `../assets/images/seniors/${filename}`;
+  const key = `../assets/images/${filename}`;
   return images[key];
 };
 
 const hofData = [
   {
     id: 1,
-    name: "Name",
+    name: "Avish Kumar Shrivastava",
     role: "Role",
     category: "Category",
     batch: "Year",
     achievement:
       "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
-    image: "sampleimg.jpg"
+    image: "Avish.jpg"
   },
 
  {
     id: 2,
-    name: "Name",
+    name: "Adarsh Kumar",
     role: "Role",
     category: "Category",
     batch: "Year",
     achievement:
       "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
-    image: "sampleimg.jpg"
+    image: "Adarsh.jpg"
   },
 
  {
     id: 3,
-    name: "Name",
+    name: "Divyam Dixit",
     role: "Role",
     category: "Category",
     batch: "Year",
     achievement:
       "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
-    image: "sampleimg.jpg"
+    image: "Divyam.jpg"
   },
 
  {
     id: 4,
-    name: "Name",
+    name: "Kreeti Soni",
     role: "Role",
     category: "Category",
     batch: "Year",
     achievement:
       "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
-    image: "sampleimg.jpg"
+    image: "Kreeti.jpg"
   },
 
  {
     id: 5,
-    name: "Name",
+    name: "Mansi Gupta",
     role: "Role",
     category: "Category",
     batch: "Year",
     achievement:
       "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
-    image: "sampleimg.jpg"
+    image: "Mansi.jpg"
   },
+
+  {
+    id: 6,
+    name: "Prakhar Shrivastav",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
+    achievement:
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
+    image: "Prakhar.jpg"
+  },
+
+  {
+    id: 7,
+    name: "V. Sri. Dixita",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
+    achievement:
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
+    image: "Dikshita.jpg"
+  },
+
+  {
+    id: 8,
+    name: "Md. Aftab Khan",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
+    achievement:
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
+    image: "Aftab.jpg"
+  },
+
+  {
+    id: 9,
+    name: "Twinkle Patre",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
+    achievement:
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
+    image: "Twinkle.jpg"
+  },
+
+  {
+    id: 10,
+    name: "Vaibhav Jain",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
+    achievement:
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
+    image: "Vaibhav.jpg"
+  }
 ];
 
 const categories = [
